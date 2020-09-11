@@ -1,0 +1,11 @@
+bookdown::gitbook:
+#  split_by: 'section'
+#  split_by: 'section+number'
+  split_by: 'chapter+number'
+  config:
+    sharing: null
+    toc:
+      collapse: none
+      before: |
+        <li><a href = "/">Tutorial Home</a></li>
+  toc_depth: 2

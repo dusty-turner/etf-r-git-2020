@@ -1,0 +1,174 @@
+---
+title: "Intermediate R"
+author: "MAJ Dusty Turner and Robert Ward"
+date: "15 JUN 2020"
+output: bookdown::gitbook
+# output:
+#   bookdown::html_book:
+#     theme: united
+site: bookdown::bookdown_site
+always_allow_html: yes
+documentclass: memoir
+classoption: oneside
+# geometry: margin=.75in
+---
+
+```{r setup, include=FALSE, cache = TRUE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+# Class Introduction
+
+Topics
+
+1. Data Manipulation
+2. Data Visualization
+3. Functional Programming
+4. Data Modeling
+5. Text Analysis
+
+Incorporating Intermediate R Techniques
+
+## Expectations
+
+By taking this course, we assume you have a working knowledge of the following...
+
+1. Base R and RStudio Functionality
+2. Basic 'tidy' concepts
+3. Introductory Statistics
+4. Dad Jokes
+
+Give it a shot, if its too much or too little, will not be offended if you leave.
+
+Its okay to struggle.
+
+## Distance Learning Challenges
+
+1. Expected to be in person
+2. Unknown number of students in class
+3. Asking Questions - both verbally and in chat
+4. How to know if you are following along
+5. Speed of going through the material
+
+## Class Structure
+
+1. 7 HOURS!
+2. ~ 50:10 Work to break - 1 HR Lunch
+3. We will ask for feedback to get a feel for understanding 
+4. We will try to answer questions in chat
+
+## Learning Recommendations
+
+1. Use RMD files provided in repo (will get this this later)
+2. Take notes with comments
+3. Execute code along with us
+4. Ask questions in chat
+
+## Class Introductions 
+
+Might pass on this given the classroom size.
+
+Around the (virtual) room:
+
+- Where you are from:
+- Who you work for:
+- How you are involved in Data Science:
+    (ie - statistics, coding, application building, manager, etc)
+<!-- - Why you sat in that seat: -->
+- R Coding Experience
+- Favorite sports team:
+
+## Instructors Introduction
+
+### MAJ Dusty Turner
+
+Army 
+
+- Combat Engineer
+- Platoon Leader / XO / Company Commander
+- Geospatial / Sapper / Route Clearance
+- Hawaii / White Sands Missile Range / Iraq / Afghanistan
+
+Education
+
+- West Point '07
+  - Operations Research, BS
+- Missouri University of Science and Technology '12
+  - Engineering Management, MS
+- THE Ohio State '16
+  - Integrated Systems Engineering, MS
+  - Applied Statistics, Graduate Minor
+
+Data Science
+
+- R User Since '14
+- Catch me on Twitter [`@dtdusty`](http://www.twitter.com/dtdusty)
+- <http://dusty-turner.netlify.com/>
+
+### Robert Ward
+
+Education
+
+- University of Chicago, '13
+  - Political Science & English, BA
+- Columbia University School of International and Public Affairs, '18
+  - Master of International Affairs, Specialization in Advanced Policy and Economic Analysis
+  
+Data Science
+
+- R user since 2011; also know some python and forgot some Stata
+- Worked for GAO Applied Research & Methods
+- ORSA at CAA and Army Leader Dashboard/Vantage PM team
+
+
+## Course Intent
+
+- Be interactive
+- Ask questions at any point
+- Don't let me move too fast (or too slow)
+- Run the code with me
+- Use course materials (we'll get to that in a second)
+
+## Tidy Ecosystem
+
+![](images/tidyverse.png)
+
+
+![](images/tidymodels.png)
+
+## Get Course Documents
+
+[github repo](https://github.com/dusty-turner/MORS-Intermediate-R)
+
+SSH:
+
+```git clone git@github.com:dusty-turner/MORS-Intermediate-R.git```
+
+HTTPS:
+
+https://github.com/dusty-turner/MORS-Intermediate-R.git
+
+### {-} R Markdown
+
+While we're here, lets do a quick overview of R Markdown.
+
+## Prerequisite Packages
+
+```{r eval=FALSE, include=TRUE}
+install.packages(
+  "tidyverse",
+  "janitor",
+  "gganimate",
+  "purrr",
+  "tidymodels",
+  "tune",
+  "doFuture",
+  "vip",
+  "stringi",
+  "topicmodels",
+  "yardstick",
+  "recipe",
+  dependencies = TRUE
+  )
+```
+
