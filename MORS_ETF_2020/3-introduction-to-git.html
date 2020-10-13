@@ -50,12 +50,13 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -64,14 +65,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +83,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -148,11 +151,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5" data-path="2-initialize-r-project.html"><a href="2-initialize-r-project.html#update-gitignore"><i class="fa fa-check"></i><b>2.5</b> Update gitignore</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html"><i class="fa fa-check"></i><b>3</b> Introduction to git</a><ul>
-<li class="chapter" data-level="3.1" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html#set-up-ssh-key"><i class="fa fa-check"></i><b>3.1</b> set up ssh key</a></li>
-<li class="chapter" data-level="3.2" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html#have-githubgitlab-account"><i class="fa fa-check"></i><b>3.2</b> have github/gitlab account</a></li>
-<li class="chapter" data-level="3.3" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html#put-ssh-key-in-githubgitlab"><i class="fa fa-check"></i><b>3.3</b> put ssh key in github/gitlab</a></li>
-<li class="chapter" data-level="3.4" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html#set-global-configurations-in-git"><i class="fa fa-check"></i><b>3.4</b> set global configurations in git</a></li>
-<li class="chapter" data-level="3.5" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html#clone-repo"><i class="fa fa-check"></i><b>3.5</b> clone repo</a></li>
+<li class="chapter" data-level="3.1" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i><b>3.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="3.2" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html#terminology-git-vs.-git-bash-vs.-githubgitlabbitbucket"><i class="fa fa-check"></i><b>3.2</b> Terminology: Git vs. Git Bash vs. GitHub/GitLab/BitBucket</a></li>
+<li class="chapter" data-level="3.3" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html#generate-an-ssh-key"><i class="fa fa-check"></i><b>3.3</b> Generate an SSH Key</a></li>
+<li class="chapter" data-level="3.4" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html#put-ssh-key-in-githubgitlab"><i class="fa fa-check"></i><b>3.4</b> put ssh key in github/gitlab</a></li>
+<li class="chapter" data-level="3.5" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html#set-global-configurations-in-git"><i class="fa fa-check"></i><b>3.5</b> set global configurations in git</a></li>
+<li class="chapter" data-level="3.6" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html#clone-repo"><i class="fa fa-check"></i><b>3.6</b> clone repo</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="4-make-edits-in-the-r-project.html"><a href="4-make-edits-in-the-r-project.html"><i class="fa fa-check"></i><b>4</b> Make Edits in the R Project</a><ul>
 <li class="chapter" data-level="4.1" data-path="4-make-edits-in-the-r-project.html"><a href="4-make-edits-in-the-r-project.html#we-make-an-edit-in-r-markdown-and-push"><i class="fa fa-check"></i><b>4.1</b> We Make an edit in R Markdown and Push</a></li>
@@ -181,20 +185,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="introduction-to-git" class="section level1">
 <h1><span class="header-section-number">3</span> Introduction to git</h1>
-<div id="set-up-ssh-key" class="section level2">
-<h2><span class="header-section-number">3.1</span> set up ssh key</h2>
+<p>Git is the world’s most widely used version control system. It is fast, flexible, and relatively easy to learn given its sophistication under the hood, making it an invaluable tool for collaborative software development. Moreover, access to Git and to services for using it collaboratively, such as GitLab, has grown substantially in the Department of Defense in recent years, including on classified networks. Learning to use Git and related services will make you a more capable programmer, even if you primarily work alone or don’t think of yourself as doing “software development.”</p>
+<div id="prerequisites" class="section level2">
+<h2><span class="header-section-number">3.1</span> Prerequisites</h2>
+<ul>
+<li>Git installed on your computer</li>
+<li>GitHub account</li>
+</ul>
 </div>
-<div id="have-githubgitlab-account" class="section level2">
-<h2><span class="header-section-number">3.2</span> have github/gitlab account</h2>
+<div id="terminology-git-vs.-git-bash-vs.-githubgitlabbitbucket" class="section level2">
+<h2><span class="header-section-number">3.2</span> Terminology: Git vs. Git Bash vs. GitHub/GitLab/BitBucket</h2>
+<p>“Git” is a piece of software whose primary job is to track changes between different versions of text (and other) files, efficiently keep track of the entire history of those changes, and provide tools to merge different versions of files and “branches” of repositories (called “repos” for short). Git is a <em>distributed</em> version control system, meaning that the entire repo <em>and its entire history</em> are held simultaneously in every location where the repo is stored. You must install and run Git on your own computer to use it.</p>
+<p>“Git Bash” is a command-line application included with Git for Windows, which makes the bash shell - the default command-line shell for many Linux systems - available in Windows.</p>
+<p>“GitHub,” “GitLab,” “BitBucket,” and their competitors are websites that have built additional functionality around Git, primarily focused on helping people share Git repos. They provide a central location to and from which collaborators can sync any changes they’ve made to their shared repository. They also often include various project-management and Continuous Integration/Continuous Deployment (CI/CD) tools; these are not integral to Git, and we won’t be covering them today, but they can be very useful.</p>
+<p>Somewhat confusingly, GitHub also makes a piece of software called GitHub Desktop, which bundles Git itself with a graphical interface designed for use with GitHub specifically. We won’t be using this, and I prefer using Git on the command line, but it is one of many graphical Git clients that you might consider using.</p>
+<p>Today, we’ll be using a command-line tool (Git Bash on Windows, the built-in terminal if you’re on Mac or Linux), to run various git commands on our own computers, some of which will involve communicating with GitHub.</p>
+</div>
+<div id="generate-an-ssh-key" class="section level2">
+<h2><span class="header-section-number">3.3</span> Generate an SSH Key</h2>
+<p>In most cases, your computer will communicate with GitHub using the secure SSH protocol. Instead of the usual username/password or smart card authentication, SSH typically involves public/private key authentication. In this setup, you generate a pair of keys, provide your public key to sites that you’d like to securely communicate with, and then let ssh do some cryptographic magic to use your private key to prove your identity without ever exposing it to anyone else.</p>
+<p>To generate a key pair, running the following line of code in Git Bash/Terminal. Use the same email address as your GitHub account.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="3-introduction-to-git.html#cb2-1"></a><span class="fu">ssh-keygen</span> -t ed25519 -C <span class="st">&quot;&lt;your_email_here@host.com&gt;&quot;</span></span></code></pre></div>
+<p>You should see a response like the one below. If you don’t already have a key, just hit enter to use the suggested file path.</p>
+<pre><code>Generating public/private ed25519 key pair.
+Enter file in which to save the key (/c/Users/robert.w.ward/.ssh/id_ed25519):</code></pre>
+<p>You can then set a passphrase for your ssh key. This has no connection to your GitHub password or anything else - it’s an additional layer of security on the keypair itself, meant to ensure that nobody could impersonate you to GitHub even if they had your private key. You won’t see letters appear as you type, but you will have to type the same password twice. Good luck!</p>
+<pre><code>Enter passphrase (empty for no passphrase):
+Enter same passphrase again:</code></pre>
 </div>
 <div id="put-ssh-key-in-githubgitlab" class="section level2">
-<h2><span class="header-section-number">3.3</span> put ssh key in github/gitlab</h2>
+<h2><span class="header-section-number">3.4</span> put ssh key in github/gitlab</h2>
+<p>You now need to copy the public key from the newly-generated pair so that you can upload it to GitHub. You have a couple of options here. To stick with the command line, you can use the <code>cat</code> command, plus the path to your key, to print it out in the terminal, and then copy it from there.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="3-introduction-to-git.html#cb5-1"></a><span class="fu">cat</span> ~/.ssh/id_ed25519.pub</span></code></pre></div>
+<p>Typically, copying from bash uses the rather unusual hotkey <code>Ctrl+Ins</code>, or you can right-click the highlighted text and click “Copy.”</p>
+<p>Now, navigate to (GitLab’s SSH Key settings page)[<a href="https://github.com/settings/keys" class="uri">https://github.com/settings/keys</a>]</p>
 </div>
 <div id="set-global-configurations-in-git" class="section level2">
-<h2><span class="header-section-number">3.4</span> set global configurations in git</h2>
+<h2><span class="header-section-number">3.5</span> set global configurations in git</h2>
 </div>
 <div id="clone-repo" class="section level2">
-<h2><span class="header-section-number">3.5</span> clone repo</h2>
+<h2><span class="header-section-number">3.6</span> clone repo</h2>
 
 </div>
 </div>

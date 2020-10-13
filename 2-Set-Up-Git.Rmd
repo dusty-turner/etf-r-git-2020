@@ -1,11 +1,106 @@
 # Introduction to git
 
-## set up ssh key
+Git is the world's most widely used version control system. It is fast, flexible, and relatively easy to learn given its sophistication under the hood, making it an invaluable tool for collaborative software development. Moreover, access to Git and to services for using it collaboratively, such as GitLab, has grown substantially in the Department of Defense in recent years, including on classified networks. Learning to use Git and related services will make you a more capable programmer, even if you primarily work alone or don't think of yourself as doing "software development."
 
-## have github/gitlab account
+## Prerequisites
 
-## put ssh key in github/gitlab 
+* Git installed on your computer
+* GitHub account
 
-## set global configurations in git
+## Terminology: Git vs. Git Bash vs. GitHub/GitLab/BitBucket
 
-## clone repo
+"Git" is a piece of software whose primary job is to track changes between different versions of text (and other) files, efficiently keep track of the entire history of those changes, and provide tools to merge different versions of files and "branches" of repositories (called "repos" for short). Git is a *distributed* version control system, meaning that the entire repo *and its entire history* are held simultaneously in every location where the repo is stored. You must install and run Git on your own computer to use it.
+
+"Git Bash" is a command-line application included with Git for Windows, which makes the bash shell - the default command-line shell for many Linux systems - available in Windows.
+
+"GitHub," "GitLab," "BitBucket," and their competitors are websites that have built additional functionality around Git, primarily focused on helping people share Git repos. They provide a central location to and from which collaborators can sync any changes they've made to their shared repository. They also often include various project-management and Continuous Integration/Continuous Deployment (CI/CD) tools; these are not integral to Git, and we won't be covering them today, but they can be very useful.
+
+Somewhat confusingly, GitHub also makes a piece of software called GitHub Desktop, which bundles Git itself with a graphical interface designed for use with GitHub specifically. We won't be using this, and I prefer using Git on the command line, but it is one of many graphical Git clients that you might consider using.
+
+Today, we'll be using a command-line tool (Git Bash on Windows, the built-in terminal if you're on Mac or Linux), to run various git commands on our own computers, some of which will involve communicating with GitHub.
+
+## Global Git Configuration
+
+Before doing anything with Git, we need to set some global configuration variable. To do so, open Git Bash and run the following:
+
+```{bash, eval = F}
+git config --global user.name "Your Name"
+git config --global user.email your_email_here@host.com
+```
+
+At this point, you could use Git for version control locally - for instance, these three commands will create a new folder, make it your working directory, then initialize a git repo there.
+
+```{bash, eval = F}
+mkdir sample_repo
+cd sample_repo
+git init
+```
+
+## Generate an SSH Key
+
+However, Git is at its most powerful when used collaboratively through a platform like GitHub, so, next, we'll set up GitHub to communicate securely with your local machine using the SSH protocol. Instead of the username/password or smart card authentication you may be used to, SSH typically involves public key authentication. In this setup, you generate a pair of keys, provide your public key to sites that you'd like to securely communicate with, and then let ssh do some cryptographic magic to use your private key to prove your identity without ever exposing it to anyone else.
+
+To generate a key pair, running the following line of code in Git Bash/Terminal. Use the same email address as your GitHub account.
+
+```{bash, eval = F}
+ssh-keygen -t ed25519 -C "<your_email_here@host.com>"
+```
+
+You should see a response like the one below. If you don't already have a key, just hit enter to use the suggested file path.
+
+```
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/c/Users/robert.w.ward/.ssh/id_ed25519):
+```
+
+You can then set a passphrase for your ssh key. This has no connection to your GitHub password or anything else - it's an additional layer of security on the keypair itself, meant to ensure that nobody could impersonate you to GitHub even if they had your private key. You won't see letters appear as you type, but you will have to type the same password twice. Good luck!
+
+```
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+```
+
+## Add SSH Key to GitHub
+
+You now need to copy the public key from the newly-generated pair so that you can upload it to GitHub. You have a couple of options here. To stick with the command line, you can use the `cat` command, plus the path to your key, to print it out in the terminal, and then copy it from there. Typically, copying from bash uses the rather unusual hotkey `Ctrl+Ins`, or you can right-click the highlighted text and click "Copy."
+
+```{bash, eval = FALSE}
+cat ~/.ssh/id_ed25519.pub
+```
+
+You can also navigate to this file using your system's file explorer - on Windows, you'll find the .ssh folder in your user folder - and open it in a text editor.
+
+Now, navigate to [GitHub's SSH Key settings page](https://github.com/settings/keys). Click "New SSH Keys" in the top-right corner, paste in your public key, give it a title, and click "Add SSH Key." You should now be able to communicate with GitHub via SSH!
+
+The process for GitLab, which tends to be the platform of choice for use on DoD networks due to its greater availability for self-hosting, is almost identical. Simply go to the settings page, choose "SSH Keys" from the menu bar on the left, and add a key on that page.
+
+## Clone a Repository
+
+Now, we can finally use Git to "clone" a repository found on GitHub to our local machines. To do this, go to the [GitHub repository for this book](https://github.com/dusty-turner/etf-r-git-2020) and click on the green "Code" button. With SSH selected (this should be the default), click the clipboard button to copy the repo URL.
+
+![](img/github_menu.png)
+
+In Git Bash/Terminal, use `cd` to navigate to the folder in which you'd like to create the project folder, then run `git clone` on this URL.
+
+```{bash, eval = FALSE}
+cd ~/projects/
+git clone git@github.com:dusty-turner/etf-r-git-2020.git
+```
+
+You should see output like the following:
+
+```
+Cloning into 'etf-r-git-2020'...
+Warning: Permanently added the RSA host key for IP address '140.82.112.3' to the list of known hosts.
+remote: Enumerating objects: 51, done.
+remote: Counting objects: 100% (51/51), done.
+remote: Compressing objects: 100% (43/43), done.
+remote: Total 51 (delta 8), reused 45 (delta 6), pack-reused 0
+Receiving objects: 100% (51/51), 206.22 KiB | 17.18 MiB/s, done.
+Resolving deltas: 100% (8/8), done.
+```
+
+This lets you know that the repo has been cloned - downloaded to your computer - successfully. Because we cloned it, it's also linked to GitHub. However, this doesn't mean that any work we do locally will automatically be synced to GitHub, or vice versa. Git asks us to be more intentional about tracking changes, requiring the user to choose which changes to track, when to "commit" these changes to the repo history, and when to "push" and "pull" new changes to and from GitHub. We'll cover all of that later on.
+
+
+
