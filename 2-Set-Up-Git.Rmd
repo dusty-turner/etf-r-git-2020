@@ -1,0 +1,11 @@
+# Introduction to git
+
+## set up ssh key
+
+## have github/gitlab account
+
+## put ssh key in github/gitlab 
+
+## set global configurations in git
+
+## clone repo

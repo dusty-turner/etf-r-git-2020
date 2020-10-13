@@ -21,41 +21,44 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 
 Topics
 
-1. Data Manipulation
-2. Data Visualization
-3. Functional Programming
-4. Data Modeling
-5. Text Analysis
-
-Incorporating Intermediate R Techniques
+1. R Project Set Up
+2. git and hosting a git repository
+3. Introductory git commands
+4. Sharing a project via git
+5. *Bonus* Differential Equations in R
 
 ## Expectations
 
-By taking this course, we assume you have a working knowledge of the following...
+By attending this tutorial, we assume you have...
 
-1. Base R and RStudio Functionality
-2. Basic 'tidy' concepts
-3. Introductory Statistics
-4. Dad Jokes
+1. working knowledge of R and RStudio
+2. conteporary tidy coding concepts
+3. a need to work collaborativly on a project
+4. a healthy appreciation of Dad Jokes
 
 Give it a shot, if its too much or too little, will not be offended if you leave.
 
 Its okay to struggle.
 
+## Prerequisites
+
+1. R 3.6.x or newer
+2. RStudio 1.2.x or newer
+3. Git 
+4. Git Bash (included with Git for Windows) or another command-line application of your choice capable of using Git
+
+
 ## Distance Learning Challenges
 
-1. Expected to be in person
-2. Unknown number of students in class
-3. Asking Questions - both verbally and in chat
-4. How to know if you are following along
-5. Speed of going through the material
+1. Don't be afraid to ask questions - both verbally and in chat
+2. If you miss something we said, its likely others have too
+3. Its difficult the know the speed of the class so please communicate!
 
 ## Class Structure
 
-1. 7 HOURS!
-2. ~ 50:10 Work to break - 1 HR Lunch
+1. 2 hours of instruction
+2. 1 ten minute break
 3. We will ask for feedback to get a feel for understanding 
-4. We will try to answer questions in chat
 
 ## Learning Recommendations
 
@@ -64,19 +67,14 @@ Its okay to struggle.
 3. Execute code along with us
 4. Ask questions in chat
 
-## Class Introductions 
+## Endstate
 
-Might pass on this given the classroom size.
+1. You have git configured on your computer
+2. You have linked git to github or gitlab
+3. You have a repo cloned to your computer.
+4. You can push, pull, and merge git conflicts, on the repository.
+5. You've learned a little more about differential equations in R.
 
-Around the (virtual) room:
-
-- Where you are from:
-- Who you work for:
-- How you are involved in Data Science:
-    (ie - statistics, coding, application building, manager, etc)
-<!-- - Why you sat in that seat: -->
-- R Coding Experience
-- Favorite sports team:
 
 ## Instructors Introduction
 
@@ -121,53 +119,13 @@ Data Science
 - ORSA at CAA and Army Leader Dashboard/Vantage PM team
 
 
-## Course Intent
+## Lets Get Started...
 
-- Be interactive
-- Ask questions at any point
-- Don't let me move too fast (or too slow)
-- Run the code with me
-- Use course materials (we'll get to that in a second)
-
-## Tidy Ecosystem
-
-![](images/tidyverse.png)
-
-
-![](images/tidymodels.png)
-
-## Get Course Documents
-
-[github repo](https://github.com/dusty-turner/MORS-Intermediate-R)
-
-SSH:
-
-```git clone git@github.com:dusty-turner/MORS-Intermediate-R.git```
-
-HTTPS:
-
-https://github.com/dusty-turner/MORS-Intermediate-R.git
-
-### {-} R Markdown
-
-While we're here, lets do a quick overview of R Markdown.
-
-## Prerequisite Packages
+### Prerequisite Packages
 
 ```{r eval=FALSE, include=TRUE}
 install.packages(
-  "tidyverse",
-  "janitor",
-  "gganimate",
-  "purrr",
-  "tidymodels",
-  "tune",
-  "doFuture",
-  "vip",
-  "stringi",
-  "topicmodels",
-  "yardstick",
-  "recipe",
+  "tidyverse"
   dependencies = TRUE
   )
 ```
