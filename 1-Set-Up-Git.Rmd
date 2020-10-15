@@ -1,5 +1,7 @@
 # Introduction to git
 
+Our first step today will be to use Git to download the files for the tutorial from GitHub.
+
 Git is the world's most widely used version control system. It is fast, flexible, and relatively easy to learn given its sophistication under the hood, making it an invaluable tool for collaborative software development. Moreover, access to Git and to services for using it collaboratively, such as GitLab, has grown substantially in the Department of Defense in recent years, including on classified networks. Learning to use Git and related services will make you a more capable programmer, even if you primarily work alone or don't think of yourself as doing "software development."
 
 ## Prerequisites
@@ -74,7 +76,9 @@ Now, navigate to [GitHub's SSH Key settings page](https://github.com/settings/ke
 
 The process for GitLab, which tends to be the platform of choice for use on DoD networks due to its greater availability for self-hosting, is almost identical. Simply go to the settings page, choose "SSH Keys" from the menu bar on the left, and add a key on that page.
 
-## Clone a Repository
+## Fork and Clone a Repository
+
+We can now use Git 
 
 Now, we can finally use Git to "clone" a repository found on GitHub to our local machines. To do this, go to the [GitHub repository for this book](https://github.com/dusty-turner/etf-r-git-2020) and click on the green "Code" button. With SSH selected (this should be the default), click the clipboard button to copy the repo URL.
 
