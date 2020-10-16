@@ -19,62 +19,44 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 
 # Class Introduction
 
-Topics
+## Topics & Class Structure
 
-1. R Project Set Up
-2. git and hosting a git repository
-3. Introductory git commands
-4. Sharing a project via git
-5. *Bonus* Differential Equations in R
+1. Git/GitHub setup and repository download (~45 minutes; interactive)
+2. Ten-minute break
+3. Using R for modeling with differential equations (~30 minutes; interactive)
+4. Collaboration using Git (as time allows; instructor demonstration)
 
-## Expectations
-
-By attending this tutorial, we assume you have...
-
-1. working knowledge of R and RStudio
-2. conteporary tidy coding concepts
-3. a need to work collaborativly on a project
-4. a healthy appreciation of Dad Jokes
-
-Give it a shot, if its too much or too little, will not be offended if you leave.
-
-Its okay to struggle.
-
-## Prerequisites
+## Software Prerequisites
 
 1. R 3.6.x or newer
 2. RStudio 1.2.x or newer
 3. Git 
 4. Git Bash (included with Git for Windows) or another command-line application of your choice capable of using Git
 
+## Human Prerequisites
+
+We assume you have:
+
+1. Working knowledge of R and RStudio;
+2. Some experience with contemporary tidy coding concepts;
+3. A need to work collaboratively on projects;
+4. A healthy appreciation of dad jokes.
+
+Try to follow along, at least through the differential equation section. It's okay to struggle to keep up with certain parts of this - we'll do our best to help you, but we also won't be offended if you decide to leave.
 
 ## Distance Learning Challenges
 
-1. Don't be afraid to ask questions - both verbally and in chat
-2. If you miss something we said, its likely others have too
-3. Its difficult the know the speed of the class so please communicate!
-
-## Class Structure
-
-1. 2 hours of instruction
-2. 1 ten minute break
-3. We will ask for feedback to get a feel for understanding 
-
-## Learning Recommendations
-
-1. Use RMD files provided in repo (will get this this later)
-2. Take notes with comments
-3. Execute code along with us
-4. Ask questions in chat
+1. Don't be afraid to ask questions - both verbally and in chat.
+2. If you miss something we said, it's likely others have too - you'll be helping them by speaking up.
+3. Its difficult the know the speed of the class, so please communicate!
 
 ## Endstate
 
-1. You have git configured on your computer
-2. You have linked git to github or gitlab
-3. You have a repo cloned to your computer.
-4. You can push, pull, and merge git conflicts, on the repository.
-5. You've learned a little more about differential equations in R.
-
+1. You have git configured on your computer;
+2. You have linked git to github;
+3. You have a repo cloned to your computer;
+4. You can push, pull, and merge git conflicts in the repository;
+5. You've learned the basics of using differential equations in R.
 
 ## Instructors Introduction
 
