@@ -50,13 +50,12 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -65,16 +64,14 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -83,9 +80,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -153,10 +150,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html"><i class="fa fa-check"></i><b>3</b> Introduction to git</a><ul>
 <li class="chapter" data-level="3.1" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i><b>3.1</b> Prerequisites</a></li>
 <li class="chapter" data-level="3.2" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html#terminology-git-vs.-git-bash-vs.-githubgitlabbitbucket"><i class="fa fa-check"></i><b>3.2</b> Terminology: Git vs. Git Bash vs. GitHub/GitLab/BitBucket</a></li>
-<li class="chapter" data-level="3.3" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html#generate-an-ssh-key"><i class="fa fa-check"></i><b>3.3</b> Generate an SSH Key</a></li>
-<li class="chapter" data-level="3.4" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html#put-ssh-key-in-githubgitlab"><i class="fa fa-check"></i><b>3.4</b> put ssh key in github/gitlab</a></li>
-<li class="chapter" data-level="3.5" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html#set-global-configurations-in-git"><i class="fa fa-check"></i><b>3.5</b> set global configurations in git</a></li>
-<li class="chapter" data-level="3.6" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html#clone-repo"><i class="fa fa-check"></i><b>3.6</b> clone repo</a></li>
+<li class="chapter" data-level="3.3" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html#global-git-configuration"><i class="fa fa-check"></i><b>3.3</b> Global Git Configuration</a></li>
+<li class="chapter" data-level="3.4" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html#generate-an-ssh-key"><i class="fa fa-check"></i><b>3.4</b> Generate an SSH Key</a></li>
+<li class="chapter" data-level="3.5" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html#add-ssh-key-to-github"><i class="fa fa-check"></i><b>3.5</b> Add SSH Key to GitHub</a></li>
+<li class="chapter" data-level="3.6" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html#clone-a-repository"><i class="fa fa-check"></i><b>3.6</b> Clone a Repository</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="4-make-edits-in-the-r-project.html"><a href="4-make-edits-in-the-r-project.html"><i class="fa fa-check"></i><b>4</b> Make Edits in the R Project</a><ul>
 <li class="chapter" data-level="4.1" data-path="4-make-edits-in-the-r-project.html"><a href="4-make-edits-in-the-r-project.html#we-make-an-edit-in-r-markdown-and-push"><i class="fa fa-check"></i><b>4.1</b> We Make an edit in R Markdown and Push</a></li>
@@ -201,11 +198,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Somewhat confusingly, GitHub also makes a piece of software called GitHub Desktop, which bundles Git itself with a graphical interface designed for use with GitHub specifically. We won’t be using this, and I prefer using Git on the command line, but it is one of many graphical Git clients that you might consider using.</p>
 <p>Today, we’ll be using a command-line tool (Git Bash on Windows, the built-in terminal if you’re on Mac or Linux), to run various git commands on our own computers, some of which will involve communicating with GitHub.</p>
 </div>
+<div id="global-git-configuration" class="section level2">
+<h2><span class="header-section-number">3.3</span> Global Git Configuration</h2>
+<p>Before doing anything with Git, we need to set some global configuration variable. To do so, open Git Bash and run the following:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="fu">git</span> config --global user.name <span class="st">&quot;Your Name&quot;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="fu">git</span> config --global user.email your_email_here@host.com</a></code></pre></div>
+<p>At this point, you could use Git for version control locally - for instance, these three commands will create a new folder, make it your working directory, then initialize a git repo there.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="fu">mkdir</span> sample_repo</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="bu">cd</span> sample_repo</a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="fu">git</span> init</a></code></pre></div>
+</div>
 <div id="generate-an-ssh-key" class="section level2">
-<h2><span class="header-section-number">3.3</span> Generate an SSH Key</h2>
-<p>In most cases, your computer will communicate with GitHub using the secure SSH protocol. Instead of the usual username/password or smart card authentication, SSH typically involves public/private key authentication. In this setup, you generate a pair of keys, provide your public key to sites that you’d like to securely communicate with, and then let ssh do some cryptographic magic to use your private key to prove your identity without ever exposing it to anyone else.</p>
+<h2><span class="header-section-number">3.4</span> Generate an SSH Key</h2>
+<p>However, Git is at its most powerful when used collaboratively through a platform like GitHub, so, next, we’ll set up GitHub to communicate securely with your local machine using the SSH protocol. Instead of the username/password or smart card authentication you may be used to, SSH typically involves public key authentication. In this setup, you generate a pair of keys, provide your public key to sites that you’d like to securely communicate with, and then let ssh do some cryptographic magic to use your private key to prove your identity without ever exposing it to anyone else.</p>
 <p>To generate a key pair, running the following line of code in Git Bash/Terminal. Use the same email address as your GitHub account.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="3-introduction-to-git.html#cb2-1"></a><span class="fu">ssh-keygen</span> -t ed25519 -C <span class="st">&quot;&lt;your_email_here@host.com&gt;&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="fu">ssh-keygen</span> -t ed25519 -C <span class="st">&quot;&lt;your_email_here@host.com&gt;&quot;</span></a></code></pre></div>
 <p>You should see a response like the one below. If you don’t already have a key, just hit enter to use the suggested file path.</p>
 <pre><code>Generating public/private ed25519 key pair.
 Enter file in which to save the key (/c/Users/robert.w.ward/.ssh/id_ed25519):</code></pre>
@@ -213,18 +220,31 @@ Enter file in which to save the key (/c/Users/robert.w.ward/.ssh/id_ed25519):</c
 <pre><code>Enter passphrase (empty for no passphrase):
 Enter same passphrase again:</code></pre>
 </div>
-<div id="put-ssh-key-in-githubgitlab" class="section level2">
-<h2><span class="header-section-number">3.4</span> put ssh key in github/gitlab</h2>
-<p>You now need to copy the public key from the newly-generated pair so that you can upload it to GitHub. You have a couple of options here. To stick with the command line, you can use the <code>cat</code> command, plus the path to your key, to print it out in the terminal, and then copy it from there.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="3-introduction-to-git.html#cb5-1"></a><span class="fu">cat</span> ~/.ssh/id_ed25519.pub</span></code></pre></div>
-<p>Typically, copying from bash uses the rather unusual hotkey <code>Ctrl+Ins</code>, or you can right-click the highlighted text and click “Copy.”</p>
-<p>Now, navigate to (GitLab’s SSH Key settings page)[<a href="https://github.com/settings/keys" class="uri">https://github.com/settings/keys</a>]</p>
+<div id="add-ssh-key-to-github" class="section level2">
+<h2><span class="header-section-number">3.5</span> Add SSH Key to GitHub</h2>
+<p>You now need to copy the public key from the newly-generated pair so that you can upload it to GitHub. You have a couple of options here. To stick with the command line, you can use the <code>cat</code> command, plus the path to your key, to print it out in the terminal, and then copy it from there. Typically, copying from bash uses the rather unusual hotkey <code>Ctrl+Ins</code>, or you can right-click the highlighted text and click “Copy.”</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" title="1"><span class="fu">cat</span> ~/.ssh/id_ed25519.pub</a></code></pre></div>
+<p>You can also navigate to this file using your system’s file explorer - on Windows, you’ll find the .ssh folder in your user folder - and open it in a text editor.</p>
+<p>Now, navigate to <a href="https://github.com/settings/keys">GitHub’s SSH Key settings page</a>. Click “New SSH Keys” in the top-right corner, paste in your public key, give it a title, and click “Add SSH Key.” You should now be able to communicate with GitHub via SSH!</p>
+<p>The process for GitLab, which tends to be the platform of choice for use on DoD networks due to its greater availability for self-hosting, is almost identical. Simply go to the settings page, choose “SSH Keys” from the menu bar on the left, and add a key on that page.</p>
 </div>
-<div id="set-global-configurations-in-git" class="section level2">
-<h2><span class="header-section-number">3.5</span> set global configurations in git</h2>
-</div>
-<div id="clone-repo" class="section level2">
-<h2><span class="header-section-number">3.6</span> clone repo</h2>
+<div id="clone-a-repository" class="section level2">
+<h2><span class="header-section-number">3.6</span> Clone a Repository</h2>
+<p>Now, we can finally use Git to “clone” a repository found on GitHub to our local machines. To do this, go to the <a href="https://github.com/dusty-turner/etf-r-git-2020">GitHub repository for this book</a> and click on the green “Code” button. With SSH selected (this should be the default), click the clipboard button to copy the repo URL.</p>
+<p><img src="img/github_menu.png" /></p>
+<p>In Git Bash/Terminal, use <code>cd</code> to navigate to the folder in which you’d like to create the project folder, then run <code>git clone</code> on this URL.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" title="1"><span class="bu">cd</span> ~/projects/</a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="fu">git</span> clone git@github.com:dusty-turner/etf-r-git-2020.git</a></code></pre></div>
+<p>You should see output like the following:</p>
+<pre><code>Cloning into &#39;etf-r-git-2020&#39;...
+Warning: Permanently added the RSA host key for IP address &#39;140.82.112.3&#39; to the list of known hosts.
+remote: Enumerating objects: 51, done.
+remote: Counting objects: 100% (51/51), done.
+remote: Compressing objects: 100% (43/43), done.
+remote: Total 51 (delta 8), reused 45 (delta 6), pack-reused 0
+Receiving objects: 100% (51/51), 206.22 KiB | 17.18 MiB/s, done.
+Resolving deltas: 100% (8/8), done.</code></pre>
+<p>This lets you know that the repo has been cloned - downloaded to your computer - successfully. Because we cloned it, it’s also linked to GitHub. However, this doesn’t mean that any work we do locally will automatically be synced to GitHub, or vice versa. Git asks us to be more intentional about tracking changes, requiring the user to choose which changes to track, when to “commit” these changes to the repo history, and when to “push” and “pull” new changes to and from GitHub. We’ll cover all of that later on.</p>
 
 </div>
 </div>

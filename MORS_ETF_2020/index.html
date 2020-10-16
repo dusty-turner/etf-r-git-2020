@@ -50,13 +50,12 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -65,16 +64,14 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -83,9 +80,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -153,10 +150,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html"><i class="fa fa-check"></i><b>3</b> Introduction to git</a><ul>
 <li class="chapter" data-level="3.1" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i><b>3.1</b> Prerequisites</a></li>
 <li class="chapter" data-level="3.2" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html#terminology-git-vs.-git-bash-vs.-githubgitlabbitbucket"><i class="fa fa-check"></i><b>3.2</b> Terminology: Git vs. Git Bash vs. GitHub/GitLab/BitBucket</a></li>
-<li class="chapter" data-level="3.3" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html#generate-an-ssh-key"><i class="fa fa-check"></i><b>3.3</b> Generate an SSH Key</a></li>
-<li class="chapter" data-level="3.4" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html#put-ssh-key-in-githubgitlab"><i class="fa fa-check"></i><b>3.4</b> put ssh key in github/gitlab</a></li>
-<li class="chapter" data-level="3.5" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html#set-global-configurations-in-git"><i class="fa fa-check"></i><b>3.5</b> set global configurations in git</a></li>
-<li class="chapter" data-level="3.6" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html#clone-repo"><i class="fa fa-check"></i><b>3.6</b> clone repo</a></li>
+<li class="chapter" data-level="3.3" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html#global-git-configuration"><i class="fa fa-check"></i><b>3.3</b> Global Git Configuration</a></li>
+<li class="chapter" data-level="3.4" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html#generate-an-ssh-key"><i class="fa fa-check"></i><b>3.4</b> Generate an SSH Key</a></li>
+<li class="chapter" data-level="3.5" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html#add-ssh-key-to-github"><i class="fa fa-check"></i><b>3.5</b> Add SSH Key to GitHub</a></li>
+<li class="chapter" data-level="3.6" data-path="3-introduction-to-git.html"><a href="3-introduction-to-git.html#clone-a-repository"><i class="fa fa-check"></i><b>3.6</b> Clone a Repository</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="4-make-edits-in-the-r-project.html"><a href="4-make-edits-in-the-r-project.html"><i class="fa fa-check"></i><b>4</b> Make Edits in the R Project</a><ul>
 <li class="chapter" data-level="4.1" data-path="4-make-edits-in-the-r-project.html"><a href="4-make-edits-in-the-r-project.html#we-make-an-edit-in-r-markdown-and-push"><i class="fa fa-check"></i><b>4.1</b> We Make an edit in R Markdown and Push</a></li>
@@ -313,10 +310,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">1.8</span> Lets Get Started…</h2>
 <div id="prerequisite-packages" class="section level3">
 <h3><span class="header-section-number">1.8.1</span> Prerequisite Packages</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1"></a><span class="kw">install.packages</span>(</span>
-<span id="cb1-2"><a href="index.html#cb1-2"></a>  <span class="st">&quot;tidyverse&quot;</span></span>
-<span id="cb1-3"><a href="index.html#cb1-3"></a>  <span class="dt">dependencies =</span> <span class="ot">TRUE</span></span>
-<span id="cb1-4"><a href="index.html#cb1-4"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">install.packages</span>(</a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="st">&quot;tidyverse&quot;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="dt">dependencies =</span> <span class="ot">TRUE</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  )</a></code></pre></div>
 
 </div>
 </div>
