@@ -78,13 +78,16 @@ The process for GitLab, which tends to be the platform of choice for use on DoD 
 
 ## Fork and Clone a Repository
 
-We can now use Git 
+Now, we can finally use Git to "clone" a repository found on GitHub to our local machines. First, however, we'll "fork" the repository used to create this course website, which will create a copy of MAJ Turner's GitHub project on your own account. To do this, go to the [GitHub repository for this book](https://github.com/dusty-turner/etf-r-git-2020) and click the "Fork" button in the upper-right corner of the page.
 
-Now, we can finally use Git to "clone" a repository found on GitHub to our local machines. To do this, go to the [GitHub repository for this book](https://github.com/dusty-turner/etf-r-git-2020) and click on the green "Code" button. With SSH selected (this should be the default), click the clipboard button to copy the repo URL.
+![](img/fork_button.png)
+
+
+After a few seconds, this will take you to your new copy of the project. To clone this project to your computer, you'll need the URL of the repository. Click on the green "Code" button, and with SSH selected (this should be the default), click the clipboard button to copy the repo URL.
 
 ![](img/github_menu.png)
 
-In Git Bash/Terminal, use `cd` to navigate to the folder in which you'd like to create the project folder, then run `git clone` on this URL.
+Finally, in Git Bash/Terminal, use `cd` to navigate to the folder in which you'd like to create the project folder, then run `git clone` on this URL.
 
 ```{bash, eval = FALSE}
 cd ~/projects/
