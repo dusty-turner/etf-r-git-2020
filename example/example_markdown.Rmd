@@ -1,0 +1,74 @@
+---
+title: "Example Markdown"
+author: "MAJ Dusty Turner and Robert Ward"
+date: "7 DEC 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = F, message = F)
+```
+
+## Set Up Code
+
+```{r}
+library(tidyverse)
+library(deSolve)
+
+seir_ode <- function(t,Y,par){
+
+  S<-Y[1] # Suseptible
+  E<-Y[2] # Exposed 
+  I<-Y[3] # Infected
+  
+  beta<-par[1] # this takes the first slot from the vector par that is passed in - it changes every time
+  sigma<-par[2] # this takes the second slot from the vector par that is passed in - it remains constant
+  gamma<-par[3] # this takes the third slot from the vector par that is passed in - it remains constant
+  # mu<-par[4] # this takes the third slot from the vector par that is passed in - it remains constant
+  
+  dYdt<-vector(length=3)  ## this creates an empty vector of length 3
+  dYdt[1]=-beta*I*S ## this is the formula for the suseptible population after the first step of the SEIR
+  dYdt[2]=beta*I*S-sigma*E ## this is the formula for the exposed population after the first step of the SEIR
+  dYdt[3]=sigma*E-gamma*I ## this is the formula for the infected population after the first step of the SEIR
+  
+  return(list(dYdt))
+}
+
+beta <- 1/5
+sigma <- 1/6
+gamma <- 1/14
+
+par<-c(beta,sigma,gamma)
+
+iNot <- 1/1000 # proportion of population that is infected on day 1
+eNot <- 1/100 # proportion of population that is exposed but not yet infected on day 1
+rNot <- 0 # proportion of population that is removed on day 1
+sNot <- 1 - iNot - eNot - rNot # proportion of population that is susceptible on day 1
+
+init<-c(sNot,eNot,iNot)
+
+t<-seq(0,365)
+
+
+SEIR_Population <- 
+  lsoda(y = init, times =  t, func = seir_ode, parms = par) %>% 
+  as.data.frame() %>%
+  janitor::clean_names() %>%
+  rename(S = x1, E = x2, I = x3) %>%
+  as_tibble() %>%
+  mutate(R = 1 - rowSums(.[2:4])) %>%
+  mutate(across(.cols = S:R, .fns = ~ . * 10000)) %>% 
+  pivot_longer(cols = S:R, names_to = "Bin", values_to = "Population") 
+
+SEIR_Population
+```
+
+### Visualize
+
+```{r}
+SEIR_Population %>%
+  ggplot(aes(x = time, y = Population, color = fct_relevel(Bin, "S", "E", "I", "R"))) +
+  geom_line() +
+  labs(x= "Time", y = "Population", color = "Bin")
+```
+

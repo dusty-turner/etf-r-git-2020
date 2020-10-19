@@ -1,7 +1,7 @@
 ---
 title: "Intermediate R"
 author: "MAJ Dusty Turner and Robert Ward"
-date: "15 JUN 2020"
+date: "7 DEC 2020"
 output: bookdown::gitbook
 # output:
 #   bookdown::html_book:

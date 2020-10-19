@@ -1,0 +1,196 @@
+# Differential Equations in R
+
+We take a quick pause from our git introduction to talk about differential equations in R.
+
+R is best known as a statistical coding language, however, it is often important to incorporate other tools into your workflow to support modeling.
+
+## deSolve
+
+We will rely on the r package `deSolve`
+
+```{r}
+library(deSolve)
+```
+
+`deSolve` is an R wrapper to the [FORTRAN ODE solver](https://rdrr.io/cran/deSolve/man/lsoda.html)
+
+As always, we'll use tools from the `tidyverse`.
+
+```{r}
+library(tidyverse)
+```
+
+### Steps to solving differential equations with deSolve
+
+1. Define your first order differential equations
+2. Define parameters governing the differential equations
+3. Define initial conditions
+4. Define time step
+5. Solve Differential Equations
+
+## Real world example: SEIR 
+
+In epedemeology, the SEIR equations govern the spread of a disease through a population.  
+
+The S, E, I, and R represent four distinct population bins:
+
+S: Suceptible
+E: Exposed
+I: Infected
+R: Removed
+
+A set of four differential equations govern a population's movement through these four bins.
+
+![](img/seir.png)
+
+$\beta$: Infectious rate - probability of transmitting disease between a susceptible and an infectious individual  
+$\sigma$: 1 / time from exposed to infectiousness  
+$\gamma$: 1 / time from infectiousness to recovery  
+
+## SEIR Differential Equations using deSolve in R
+
+### Define the Ordinary Differential Equations
+
+```{r}
+seir_ode <- function(t,Y,par){
+
+  S<-Y[1] # Suseptible
+  E<-Y[2] # Exposed 
+  I<-Y[3] # Infected
+  
+  beta<-par[1] # this takes the first slot from the vector par that is passed in - it changes every time
+  sigma<-par[2] # this takes the second slot from the vector par that is passed in - it remains constant
+  gamma<-par[3] # this takes the third slot from the vector par that is passed in - it remains constant
+  # mu<-par[4] # this takes the third slot from the vector par that is passed in - it remains constant
+  
+  dYdt<-vector(length=3)  ## this creates an empty vector of length 3
+  dYdt[1]=-beta*I*S ## this is the formula for the suseptible population after the first step of the SEIR
+  dYdt[2]=beta*I*S-sigma*E ## this is the formula for the exposed population after the first step of the SEIR
+  dYdt[3]=sigma*E-gamma*I ## this is the formula for the infected population after the first step of the SEIR
+  
+  return(list(dYdt))
+}
+```
+
+### Define Parameters
+
+```{r}
+beta <- 1/5
+sigma <- 1/6
+gamma <- 1/14
+
+par<-c(beta,sigma,gamma)
+```
+
+### Define Initial Conditions
+
+```{r}
+iNot <- 1/1000 # proportion of population that is infected on day 1
+eNot <- 1/100 # proportion of population that is exposed but not yet infected on day 1
+rNot <- 0 # proportion of population that is removed on day 1
+sNot <- 1 - iNot - eNot - rNot # proportion of population that is susceptible on day 1
+
+init<-c(sNot,eNot,iNot)
+```
+
+### Define Time Steps
+
+```{r}
+t<-seq(0,365)
+```
+
+### Solve Differential Equations
+
+```{r}
+sol <- lsoda(y = init, times =  t, func = seir_ode, parms = par)
+
+head(sol)
+```
+
+We'll return to this output in a second, but lets first take a deeper look at what is happening in `lsoda()`.
+
+### What is going on under the hood?
+
+```{r}
+sol <- lsoda(y = init, times =  t, func = seir_ode, parms = par, verbose = T)
+```
+
+### How is `deSolve` doing the work?
+
+Let's put in a few `print()` statements to help us learn.
+
+```{r}
+seir_ode_explore <- function(t,Y,par){
+  
+  print(str_c("S at time t = ", t," is: ", Y[1]))
+  print(str_c("E at time t = ", t," is: ", Y[2]))
+  print(str_c("I at time t = ", t," is: ", Y[3]))
+  print(str_c("R at time t = ", t," is: ", Y[1]-Y[2]-Y[3]))
+
+  S<-Y[1] # Suseptible
+  E<-Y[2] # Exposed 
+  I<-Y[3] # Infected
+  
+  beta<-par[1] # this takes the first slot from the vector par that is passed in - it changes every time
+  sigma<-par[2] # this takes the second slot from the vector par that is passed in - it remains constant
+  gamma<-par[3] # this takes the third slot from the vector par that is passed in - it remains constant
+  
+  dYdt<-vector(length=3)  ## this creates an empty vector of length 3
+  dYdt[1]=-beta*I*S ## this is the formula for the suseptible population after the first step of the SEIR
+  dYdt[2]=beta*I*S-sigma*E ## this is the formula for the exposed population after the first step of the SEIR
+  dYdt[3]=sigma*E-gamma*I ## this is the formula for the infected population after the first step of the SEIR
+  
+  print(str_c("dSdt at time t = ", t," is: ", dYdt[1]))
+  print(str_c("dEdt at time t = ", t," is: ", dYdt[2]))
+  print(str_c("dIdt at time t = ", t," is: ", dYdt[3]))
+  
+  return(list(dYdt))
+}
+```
+
+Lets see what this teaches us.
+
+```{r}
+t<-seq(0,1)
+
+sol_explore<-lsoda(y = init, times =  t, func = seir_ode_explore, parms = par, verbose = F)
+```
+
+We can see from this output how `lsoda` is stepping through to numerically solve the differential equations.
+
+## Explore Results
+
+Results from `lsoda()`.
+
+```{r}
+head(sol)
+```
+
+### "Tidy" the output
+
+This is confusing.  Let's clean it up.
+
+```{r}
+
+SEIR_Population <-
+  sol %>%
+  as.data.frame() %>%
+  janitor::clean_names() %>%
+  rename(S = x1, E = x2, I = x3) %>%
+  as_tibble() %>%
+  mutate(R = 1 - rowSums(.[2:4])) %>%
+  mutate(across(.cols = S:R, .fns = ~ . * 10000))
+  
+SEIR_Population
+```
+
+### Visualize Output
+
+```{r}
+SEIR_Population %>%
+  pivot_longer(cols = S:R, names_to = "Bin", values_to = "Population") %>% 
+  ggplot(aes(x = time, y = Population, color = fct_relevel(Bin, "S", "E", "I", "R"))) +
+  geom_line() +
+  labs(x= "Time", y = "Population", color = "Bin")
+```
+

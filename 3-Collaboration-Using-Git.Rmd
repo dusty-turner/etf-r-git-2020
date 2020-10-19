@@ -1,0 +1,16 @@
+# Collaboration Using Git
+
+## Collaboration
+
+As much as time allows, we will demonstrate the following:
+
+1. Pushing edits of code to the remote repository  
+2. Pulling code from the remote repository
+3. Managing and merging conflicts
+4. Branching
+
+## Example
+
+From here on out, we will work from the following R Markdown file. 
+
+`example_code/example_markdown.rmd`

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Intermediate R</title>
-  <meta name="description" content="Intermediate R" />
+  <title>4 Collaboration Using Git | Intermediate R</title>
+  <meta name="description" content="4 Collaboration Using Git | Intermediate R" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Intermediate R" />
+  <meta property="og:title" content="4 Collaboration Using Git | Intermediate R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Intermediate R" />
+  <meta name="twitter:title" content="4 Collaboration Using Git | Intermediate R" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="3-differential-equations-in-r.html"/>
 
-<link rel="next" href="2-introduction-to-git.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -150,125 +150,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Intermediate R</h1>
-<p class="author"><em>MAJ Dusty Turner and Robert Ward</em></p>
-<p class="date"><em>7 DEC 2020</em></p>
-</div>
-<div id="class-introduction" class="section level1">
-<h1><span class="header-section-number">1</span> Class Introduction</h1>
-<div id="topics-class-structure" class="section level2">
-<h2><span class="header-section-number">1.1</span> Topics &amp; Class Structure</h2>
+<div id="collaboration-using-git" class="section level1">
+<h1><span class="header-section-number">4</span> Collaboration Using Git</h1>
+<div id="collaboration" class="section level2">
+<h2><span class="header-section-number">4.1</span> Collaboration</h2>
+<p>As much as time allows, we will demonstrate the following:</p>
 <ol style="list-style-type: decimal">
-<li>Git/GitHub setup and repository download (~45 minutes; interactive)</li>
-<li>Ten-minute break</li>
-<li>Using R for modeling with differential equations (~30 minutes; interactive)</li>
-<li>Collaboration using Git (as time allows; instructor demonstration)</li>
+<li>Pushing edits of code to the remote repository<br />
+</li>
+<li>Pulling code from the remote repository</li>
+<li>Managing and merging conflicts</li>
+<li>Branching</li>
 </ol>
 </div>
-<div id="software-prerequisites" class="section level2">
-<h2><span class="header-section-number">1.2</span> Software Prerequisites</h2>
-<ol style="list-style-type: decimal">
-<li>R 3.6.x or newer</li>
-<li>RStudio 1.2.x or newer</li>
-<li>Git</li>
-<li>Git Bash (included with Git for Windows) or another command-line application of your choice capable of using Git</li>
-</ol>
-</div>
-<div id="human-prerequisites" class="section level2">
-<h2><span class="header-section-number">1.3</span> Human Prerequisites</h2>
-<p>We assume you have:</p>
-<ol style="list-style-type: decimal">
-<li>Working knowledge of R and RStudio;</li>
-<li>Some experience with contemporary tidy coding concepts;</li>
-<li>A need to work collaboratively on projects;</li>
-<li>A healthy appreciation of dad jokes.</li>
-</ol>
-<p>Try to follow along, at least through the differential equation section. It’s okay to struggle to keep up with certain parts of this - we’ll do our best to help you, but we also won’t be offended if you decide to leave.</p>
-</div>
-<div id="distance-learning-challenges" class="section level2">
-<h2><span class="header-section-number">1.4</span> Distance Learning Challenges</h2>
-<ol style="list-style-type: decimal">
-<li>Don’t be afraid to ask questions - both verbally and in chat.</li>
-<li>If you miss something we said, it’s likely others have too - you’ll be helping them by speaking up.</li>
-<li>Its difficult the know the speed of the class, so please communicate!</li>
-</ol>
-</div>
-<div id="endstate" class="section level2">
-<h2><span class="header-section-number">1.5</span> Endstate</h2>
-<ol style="list-style-type: decimal">
-<li>You have git configured on your computer;</li>
-<li>You have linked git to github;</li>
-<li>You have a repo cloned to your computer;</li>
-<li>You can push, pull, and merge git conflicts in the repository;</li>
-<li>You’ve learned the basics of using differential equations in R.</li>
-</ol>
-</div>
-<div id="instructors-introduction" class="section level2">
-<h2><span class="header-section-number">1.6</span> Instructors Introduction</h2>
-<div id="maj-dusty-turner" class="section level3">
-<h3><span class="header-section-number">1.6.1</span> MAJ Dusty Turner</h3>
-<p>Army</p>
-<ul>
-<li>Combat Engineer</li>
-<li>Platoon Leader / XO / Company Commander</li>
-<li>Geospatial / Sapper / Route Clearance</li>
-<li>Hawaii / White Sands Missile Range / Iraq / Afghanistan</li>
-</ul>
-<p>Education</p>
-<ul>
-<li>West Point ’07
-<ul>
-<li>Operations Research, BS</li>
-</ul></li>
-<li>Missouri University of Science and Technology ’12
-<ul>
-<li>Engineering Management, MS</li>
-</ul></li>
-<li>THE Ohio State ’16
-<ul>
-<li>Integrated Systems Engineering, MS</li>
-<li>Applied Statistics, Graduate Minor</li>
-</ul></li>
-</ul>
-<p>Data Science</p>
-<ul>
-<li>R User Since ’14</li>
-<li>Catch me on Twitter <a href="http://www.twitter.com/dtdusty"><code>@dtdusty</code></a></li>
-<li><a href="http://dusty-turner.netlify.com/" class="uri">http://dusty-turner.netlify.com/</a></li>
-</ul>
-</div>
-<div id="robert-ward" class="section level3">
-<h3><span class="header-section-number">1.6.2</span> Robert Ward</h3>
-<p>Education</p>
-<ul>
-<li>University of Chicago, ’13
-<ul>
-<li>Political Science &amp; English, BA</li>
-</ul></li>
-<li>Columbia University School of International and Public Affairs, ’18
-<ul>
-<li>Master of International Affairs, Specialization in Advanced Policy and Economic Analysis</li>
-</ul></li>
-</ul>
-<p>Data Science</p>
-<ul>
-<li>R user since 2011; also know some python and forgot some Stata</li>
-<li>Worked for GAO Applied Research &amp; Methods</li>
-<li>ORSA at CAA and Army Leader Dashboard/Vantage PM team</li>
-</ul>
-</div>
-</div>
-<div id="lets-get-started" class="section level2">
-<h2><span class="header-section-number">1.7</span> Lets Get Started…</h2>
-<div id="prerequisite-packages" class="section level3">
-<h3><span class="header-section-number">1.7.1</span> Prerequisite Packages</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">install.packages</span>(</a>
-<a class="sourceLine" id="cb1-2" title="2">  <span class="st">&quot;tidyverse&quot;</span></a>
-<a class="sourceLine" id="cb1-3" title="3">  <span class="dt">dependencies =</span> <span class="ot">TRUE</span></a>
-<a class="sourceLine" id="cb1-4" title="4">  )</a></code></pre></div>
+<div id="example" class="section level2">
+<h2><span class="header-section-number">4.2</span> Example</h2>
+<p>From here on out, we will work from the following R Markdown file.</p>
+<p><code>example_code/example_markdown.rmd</code></p>
 
-</div>
 </div>
 </div>
             </section>
@@ -276,8 +175,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
+<a href="3-differential-equations-in-r.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="2-introduction-to-git.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

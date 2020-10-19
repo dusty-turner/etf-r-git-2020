@@ -1,4 +1,4 @@
-book_filename: "Intermediate_R"
+book_filename: "ETF-R-Git"
 # rmd_files: ["index.Rmd", "4-Text-Analysis.Rmd"]
 delete_merged_file: TRUE
 # output_dir: 

@@ -8,4 +8,4 @@ bookdown::gitbook:
       collapse: none
       before: |
         <li><a href = "/">Tutorial Home</a></li>
-  toc_depth: 2
+  toc_depth: 1
