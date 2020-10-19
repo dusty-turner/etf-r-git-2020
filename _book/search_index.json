@@ -1,0 +1,3 @@
+[
+["4-collaboration-using-git.html", "4 Collaboration Using Git 4.1 Collaboration 4.2 Common commands 4.3 Example", " 4 Collaboration Using Git 4.1 Collaboration As much as time allows, we will demonstrate the following: Pushing edits of code to the remote repository Pulling code from the remote repository Managing and merging conflicts Branching 4.2 Common commands git status 4.3 Example From here on out, we will work from the following R Markdown file. example_code/example_markdown.rmd "]
+]

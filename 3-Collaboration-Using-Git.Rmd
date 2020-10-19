@@ -9,6 +9,30 @@ As much as time allows, we will demonstrate the following:
 3. Managing and merging conflicts
 4. Branching
 
+## Common commands
+
+```git status```
+
+Requests the status tracked changes with in the repo
+
+```git add .```
+
+Stages tracked files to be comitted
+
+The '.' tracks all chagned files.  Can also specify files to be tracked by naming them specifically or using regular expressions.
+
+```git commit -m "informative message"```
+
+Commits the files to be tracked.  
+
+```git push```
+
+Pushes committed files to the remote repository.
+
+```git pull```
+
+Pulls down and starts merge process of remote files if necessary.
+
 ## Example
 
 From here on out, we will work from the following R Markdown file. 
