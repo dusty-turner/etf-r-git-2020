@@ -35,8 +35,11 @@ git commit -m "commit message here"
 ```
 
 Before committing, it's often very useful use `git status`, which will tell you:
-* Which files have been changed;
-* Which of these files have been "added" to the staging area, and which have not;
+
+* Which files have been changed;  
+
+* Which of these files have been "added" to the staging area, and which have not;  
+
 * Which files in your repository folder are not currently being tracked by git (because they have never been added and committed.)
 
 ```{bash eval = FALSE}
@@ -49,7 +52,7 @@ Your output might look something like this, with added files at the top, then no
 
 ### Pushing
 
-Once you've made one or more commits - hopefully with informative commit messages - you can `push` those changesto whatever Git server you're using. Typically, you can simply use the command `git push` to push all new commits from your current branch to your default remote server. In some cases, you may need to specify the remote (here, "origin") and branch ("master") to push to.
+Once you've made one or more commits - hopefully with informative commit messages - you can `push` those changes to whatever Git server you're using. Typically, you can simply use the command `git push` to push all new commits from your current branch to your default remote server. In some cases, you may need to specify the remote (here, "origin") and branch ("master") to push to.
 
 ```{bash eval = FALSE}
 git push origin master

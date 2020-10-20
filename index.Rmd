@@ -106,9 +106,6 @@ Data Science
 ### Prerequisite Packages
 
 ```{r eval=FALSE, include=TRUE}
-install.packages(
-  "tidyverse"
-  dependencies = TRUE
-  )
+install.packages(c("tidyverse", "deSolve"), dependencies = TRUE)
 ```
 
