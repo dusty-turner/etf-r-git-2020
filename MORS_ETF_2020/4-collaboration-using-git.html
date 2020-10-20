@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 Collaboration Using Git | Intermediate R</title>
   <meta name="description" content="4 Collaboration Using Git | Intermediate R" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 Collaboration Using Git | Intermediate R" />
   <meta property="og:type" content="book" />
@@ -32,6 +32,7 @@
   
 <link rel="prev" href="3-differential-equations-in-r.html"/>
 
+<script src="libs/header-attrs-2.4/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -52,25 +53,26 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -79,9 +81,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -150,38 +152,69 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="collaboration-using-git" class="section level1">
+<div id="collaboration-using-git" class="section level1" number="4">
 <h1><span class="header-section-number">4</span> Collaboration Using Git</h1>
-<div id="collaboration" class="section level2">
+<div id="collaboration" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Collaboration</h2>
 <p>As much as time allows, we will demonstrate the following:</p>
 <ol style="list-style-type: decimal">
-<li>Pushing edits of code to the remote repository<br />
+<li>Pushing file changes to the remote repository<br />
 </li>
-<li>Pulling code from the remote repository</li>
+<li>Pulling file changes from the remote repository</li>
 <li>Managing and merging conflicts</li>
 <li>Branching</li>
 </ol>
+<p>This chapter offers a brief description of this basic Git workflow. For more details, check out these sites:</p>
+<ul>
+<li><a href="https://rogerdudler.github.io/git-guide/">Simple Git Guide</a>: a very basic but very easy to follow guide to Git.</li>
+<li><a href="https://git-scm.com/doc">Official Git Documentation</a>: This includes both the fairly practical and readable Pro Git book and the excruciatingly detailed, but occasionally necessary, Git Reference Manual.</li>
+<li><a href="https://www.atlassian.com/git/tutorials">Atlassian Git site</a>: Atlassian, maker of GitHub competitor BitBucket, has a helpful set of tutorials on their website.</li>
+</ul>
 </div>
-<div id="common-commands" class="section level2">
-<h2><span class="header-section-number">4.2</span> Common commands</h2>
-<p><code>git status</code></p>
-<p>Requests the status tracked changes with in the repo</p>
-<p><code>git add .</code></p>
-<p>Stages tracked files to be comitted</p>
-<p>The ‘.’ tracks all chagned files. Can also specify files to be tracked by naming them specifically or using regular expressions.</p>
-<p><code>git commit -m "informative message"</code></p>
-<p>Commits the files to be tracked.</p>
-<p><code>git push</code></p>
-<p>Pushes committed files to the remote repository.</p>
-<p><code>git pull</code></p>
-<p>Pulls down and starts merge process of remote files if necessary.</p>
-</div>
-<div id="example" class="section level2">
-<h2><span class="header-section-number">4.3</span> Example</h2>
+<div id="example" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Example</h2>
 <p>From here on out, we will work from the following R Markdown file.</p>
 <p><code>example_code/example_markdown.rmd</code></p>
+</div>
+<div id="git-workflow-overview" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Git Workflow Overview</h2>
+<div id="committing" class="section level3" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Committing</h3>
+<p>Git’s job is to track the changes made to your files over time. However, it doesn’t track every single incremental change - it tracks the net differences between the user’s “commits,” which are essentially snapshots of the state of your repository. You can revert your whole repository or just specific files to how they were at any previous commit at any time.</p>
+<p>Committing in Git is a two-step process: first you <code>git add</code> the files you’ve changed to the staging area, then you <code>git commit</code> those changes. For example, to add and commit all changed files since your last commit, you could use the following code:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="4-collaboration-using-git.html#cb28-1" aria-hidden="true"></a><span class="fu">git</span> add .</span>
+<span id="cb28-2"><a href="4-collaboration-using-git.html#cb28-2" aria-hidden="true"></a><span class="fu">git</span> commit -m <span class="st">&quot;commit message here&quot;</span></span></code></pre></div>
+<p>Before committing, it’s often very useful use <code>git status</code>, which will tell you:
+* Which files have been changed;
+* Which of these files have been “added” to the staging area, and which have not;
+* Which files in your repository folder are not currently being tracked by git (because they have never been added and committed.)</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="4-collaboration-using-git.html#cb29-1" aria-hidden="true"></a><span class="fu">git</span> status</span></code></pre></div>
+<p>Your output might look something like this, with added files at the top, then non-added changed files, then untracked files.</p>
+<p><img src="img/git_status.PNG" /></p>
+</div>
+<div id="pushing" class="section level3" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Pushing</h3>
+<p>Once you’ve made one or more commits - hopefully with informative commit messages - you can <code>push</code> those changesto whatever Git server you’re using. Typically, you can simply use the command <code>git push</code> to push all new commits from your current branch to your default remote server. In some cases, you may need to specify the remote (here, “origin”) and branch (“master”) to push to.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="4-collaboration-using-git.html#cb30-1" aria-hidden="true"></a><span class="fu">git</span> push origin master</span></code></pre></div>
+</div>
+<div id="pullingfetching" class="section level3" number="4.3.3">
+<h3><span class="header-section-number">4.3.3</span> Pulling/Fetching</h3>
+<p>To retrieve any changes that your collaborators have pushed to the remote server, and immediately merge them with the current state of your repository, use <code>git pull</code>. If you don’t want to merge in these changes yet, but you do want to know what’s available on the remote server, you can use <code>git fetch</code> to check for changes without integrating them into your working files. Like <code>git push</code>, these commands can be used alone to pull/fetch from the default remote on the current branch, or can be used with branch and remote names to operate on those specific parameters.</p>
+</div>
+<div id="merging" class="section level3" number="4.3.4">
+<h3><span class="header-section-number">4.3.4</span> Merging</h3>
+<p>If you’re working with collaborators, you will likely run into cases where your commits conflict with someone else’s, such as when you both modify the same file. By default, if you <code>git pull</code> commits that conflict with what you’ve already committed, one of two things might happen. First, if two people have modified the same text file, but they have modified completely different parts of the file, Git will likely keep both sets of changes and allow you to continue working. (Note: you might not want this, if these two sets of changes actually cause problems for each other!) Second, if the conflicting commits did make changes to the same lines of the same file, or made changes to files such as images that Git doesn’t parse in such a fine-grained way, you will be prompted to resolve the conflicts.</p>
+<p>You can do this in two ways. First, you can open the file with conflicts, find where they are, and make edits so that the file looks the way you want it to. Second, you can use <code>git checkout</code> to pick one of the two versions of the file to keep in its entirety. <a href="https://nitaym.github.io/ourstheirs/">Here’s a link to a quick guide on the latter method.</a></p>
+<p>Either way, once you’ve got the file the way you want it, use <code>git add</code> to stage the changes. Once you’ve done this for all files with conflicts, use <code>git merge --continue</code> to finish merging, which will produce a new “merge commit” that resolves the conflicts.</p>
+<p>Throughout this process, <code>git status</code> will be your best friend. Run it whenever you’re uncertain about which files have conflicts, which ones you’ve resolved and added, and what to do when you’re done - I actually learned about using <code>git merge --continue</code> by reading the output of <code>git status</code> during a merge!</p>
+</div>
+<div id="branching" class="section level3" number="4.3.5">
+<h3><span class="header-section-number">4.3.5</span> Branching</h3>
+<p>As powerful as <code>git merge</code> is, a better approach to working in parallel on the same files, or to working on code currently being used in production, is to use branches. A “branch” is exactly what it sounds like: a separate line of commits that branches off of a commit in your repository. Every repository has a default branch, typically called main or master, but you can easily create additional branches to work on specific features, experiment with new models, or make other changes without interfering with the main version of your code. When you’re ready to bring the changes you’ve made on your feature branch back into the default branch, then you can merge the entire branch, using the same <code>git merge</code> tool discussed above, since merging two branches is effectively exactly the same as merging two commits.</p>
+<p><img src="img/git_branch.png" /></p>
+<p>You can create and merge branches using command-line git with <code>git branch</code> and <code>git merge</code>, but sites like GitHub and GitLab also have tools to help you manage this process, and I would recommend using them. For instance, both sites have systems by which a user can request to merge one branch into another, and they allow for easy visibility over and discussion of the changes made in the branch. These features have different names and slightly different ways of working on different sites - for instance, GitHub calls them “Pull Requests” and GitLab calls them “Merge Requests” - so we won’t discuss the details of any particular site here, but they work similarly and are fairly intuitive.</p>
 
+</div>
 </div>
 </div>
             </section>

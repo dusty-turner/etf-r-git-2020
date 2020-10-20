@@ -4,37 +4,76 @@
 
 As much as time allows, we will demonstrate the following:
 
-1. Pushing edits of code to the remote repository  
-2. Pulling code from the remote repository
+1. Pushing file changes to the remote repository  
+2. Pulling file changes from the remote repository
 3. Managing and merging conflicts
 4. Branching
 
-## Common commands
+This chapter offers a brief description of this basic Git workflow. For more details, check out these sites:
 
-```git status```
-
-Requests the status tracked changes with in the repo
-
-```git add .```
-
-Stages tracked files to be comitted
-
-The '.' tracks all chagned files.  Can also specify files to be tracked by naming them specifically or using regular expressions.
-
-```git commit -m "informative message"```
-
-Commits the files to be tracked.  
-
-```git push```
-
-Pushes committed files to the remote repository.
-
-```git pull```
-
-Pulls down and starts merge process of remote files if necessary.
+* [Simple Git Guide](https://rogerdudler.github.io/git-guide/): a very basic but very easy to follow guide to Git.
+* [Official Git Documentation](https://git-scm.com/doc): This includes both the fairly practical and readable Pro Git book and the excruciatingly detailed, but occasionally necessary, Git Reference Manual.
+* [Atlassian Git site](https://www.atlassian.com/git/tutorials): Atlassian, maker of GitHub competitor BitBucket, has a helpful set of tutorials on their website.
 
 ## Example
 
 From here on out, we will work from the following R Markdown file. 
 
 `example_code/example_markdown.rmd`
+
+## Git Workflow Overview
+
+### Committing
+
+Git's job is to track the changes made to your files over time. However, it doesn't track every single incremental change - it tracks the net differences between the user's "commits," which are essentially snapshots of the state of your repository. You can revert your whole repository or just specific files to how they were at any previous commit at any time.
+
+Committing in Git is a two-step process: first you `git add` the files you've changed to the staging area, then you `git commit` those changes. For example, to add and commit all changed files since your last commit, you could use the following code:
+
+```{bash eval = FALSE}
+git add .
+git commit -m "commit message here"
+```
+
+Before committing, it's often very useful use `git status`, which will tell you:
+* Which files have been changed;
+* Which of these files have been "added" to the staging area, and which have not;
+* Which files in your repository folder are not currently being tracked by git (because they have never been added and committed.)
+
+```{bash eval = FALSE}
+git status
+```
+
+Your output might look something like this, with added files at the top, then non-added changed files, then untracked files.
+
+![](img/git_status.PNG)
+
+### Pushing
+
+Once you've made one or more commits - hopefully with informative commit messages - you can `push` those changesto whatever Git server you're using. Typically, you can simply use the command `git push` to push all new commits from your current branch to your default remote server. In some cases, you may need to specify the remote (here, "origin") and branch ("master") to push to.
+
+```{bash eval = FALSE}
+git push origin master
+```
+
+### Pulling/Fetching
+
+To retrieve any changes that your collaborators have pushed to the remote server, and immediately merge them with the current state of your repository, use `git pull`. If you don't want to merge in these changes yet, but you do want to know what's available on the remote server, you can use `git fetch` to check for changes without integrating them into your working files. Like `git push`, these commands can be used alone to pull/fetch from the default remote on the current branch, or can be used with branch and remote names to operate on those specific parameters.
+
+### Merging
+
+If you're working with collaborators, you will likely run into cases where your commits conflict with someone else's, such as when you both modify the same file. By default, if you `git pull` commits that conflict with what you've already committed, one of two things might happen. First, if two people have modified the same text file, but they have modified completely different parts of the file, Git will likely keep both sets of changes and allow you to continue working. (Note: you might not want this, if these two sets of changes actually cause problems for each other!) Second, if the conflicting commits did make changes to the same lines of the same file, or made changes to files such as images that Git doesn't parse in such a fine-grained way, you will be prompted to resolve the conflicts.
+
+You can do this in two ways. First, you can open the file with conflicts, find where they are, and make edits so that the file looks the way you want it to. Second, you can use `git checkout` to pick one of the two versions of the file to keep in its entirety. [Here's a link to a quick guide on the latter method.](https://nitaym.github.io/ourstheirs/) 
+
+Either way, once you've got the file the way you want it, use `git add` to stage the changes. Once you've done this for all files with conflicts, use `git merge --continue` to finish merging, which will produce a new "merge commit" that resolves the conflicts.
+
+Throughout this process, `git status` will be your best friend. Run it whenever you're uncertain about which files have conflicts, which ones you've resolved and added, and what to do when you're done - I actually learned about using `git merge --continue` by reading the output of `git status` during a merge!
+
+### Branching
+
+As powerful as `git merge` is, a better approach to working in parallel on the same files, or to working on code currently being used in production, is to use branches. A "branch" is exactly what it sounds like: a separate line of commits that branches off of a commit in your repository. Every repository has a default branch, typically called main or master, but you can easily create additional branches to work on specific features, experiment with new models, or make other changes without interfering with the main version of your code. When you're ready to bring the changes you've made on your feature branch back into the default branch, then you can merge the entire branch, using the same `git merge` tool discussed above, since merging two branches is effectively exactly the same as merging two commits.
+
+![](img/git_branch.png)
+
+You can create and merge branches using command-line git with `git branch` and `git merge`, but sites like GitHub and GitLab also have tools to help you manage this process, and I would recommend using them. For instance, both sites have systems by which a user can request to merge one branch into another, and they allow for easy visibility over and discussion of the changes made in the branch. These features have different names and slightly different ways of working on different sites - for instance, GitHub calls them "Pull Requests" and GitLab calls them "Merge Requests" - so we won't discuss the details of any particular site here, but they work similarly and are fairly intuitive.
+

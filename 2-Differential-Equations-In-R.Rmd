@@ -2,19 +2,17 @@
 
 We take a quick pause from our git introduction to talk about differential equations in R.
 
-R is best known as a statistical coding language, however, it is often important to incorporate other tools into your workflow to support modeling.
+R is best known as a statistical coding language. However, it is often important to incorporate other tools into your workflow to support modeling.
 
 ## deSolve
 
-We will rely on the r package `deSolve`
+We will rely on the r package `deSolve`, an R wrapper to the [FORTRAN ODE solver](https://rdrr.io/cran/deSolve/man/lsoda.html).
 
 ```{r}
 library(deSolve)
 ```
 
-`deSolve` is an R wrapper to the [FORTRAN ODE solver](https://rdrr.io/cran/deSolve/man/lsoda.html)
-
-As always, we'll use tools from the `tidyverse`.
+As always, we'll also use tools from the `tidyverse`.
 
 ```{r}
 library(tidyverse)
@@ -26,26 +24,26 @@ library(tidyverse)
 2. Define parameters governing the differential equations
 3. Define initial conditions
 4. Define time step
-5. Solve Differential Equations
+5. Solve differential equations
 
 ## Real world example: SEIR 
 
-In epedemeology, the SEIR equations govern the spread of a disease through a population.  
+In epidemiology, the SEIR equations model the spread of a disease through a population.  
 
 The S, E, I, and R represent four distinct population bins:
 
-S: Suceptible
-E: Exposed
-I: Infected
-R: Removed
+* S: Susceptible
+* E: Exposed
+* I: Infected
+* R: Removed
 
 A set of four differential equations govern a population's movement through these four bins.
 
 ![](img/seir.png)
 
-$\beta$: Infectious rate - probability of transmitting disease between a susceptible and an infectious individual  
-$\sigma$: 1 / time from exposed to infectiousness  
-$\gamma$: 1 / time from infectiousness to recovery  
+$\beta$: Infectiousness rate - probability of transmitting disease from an infectious individual to a susceptible individual
+$\sigma$: 1 / time from exposure to infectiousness (i.e. time spent in "E" bin)
+$\gamma$: 1 / time from infectiousness to recovery (i.e. time spent in "I" bin)
 
 ## SEIR Differential Equations using deSolve in R
 
@@ -175,13 +173,13 @@ This is confusing.  Let's clean it up.
 SEIR_Population <-
   sol %>%
   as.data.frame() %>%
+  as_tibble() %>%
   janitor::clean_names() %>%
   rename(S = x1, E = x2, I = x3) %>%
-  as_tibble() %>%
   mutate(R = 1 - rowSums(.[2:4])) %>%
   mutate(across(.cols = S:R, .fns = ~ . * 10000))
   
-SEIR_Population
+head(SEIR_Population)
 ```
 
 ### Visualize Output
