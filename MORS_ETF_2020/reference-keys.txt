@@ -21,11 +21,12 @@ desolve
 steps-to-solving-differential-equations-with-desolve
 real-world-example-seir
 seir-differential-equations-using-desolve-in-r
-define-the-ordinary-differential-equations
-define-parameters
 define-initial-conditions
 define-time-steps
+define-the-ordinary-differential-equations
+define-parameters
 solve-differential-equations
+lsoda-function
 what-is-going-on-under-the-hood
 how-is-desolve-doing-the-work
 explore-results

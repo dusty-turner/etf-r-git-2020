@@ -42,7 +42,15 @@ git init
 
 However, Git is at its most powerful when used collaboratively through a platform like GitHub, so, next, we'll set up GitHub to communicate securely with your local machine using the SSH protocol. Instead of the username/password or smart card authentication you may be used to, SSH typically involves public key authentication. In this setup, you generate a pair of keys, provide your public key to sites that you'd like to securely communicate with, and then let ssh do some cryptographic magic to use your private key to prove your identity without ever exposing it to anyone else.
 
-To generate a key pair, running the following line of code in Git Bash/Terminal. Use the same email address as your GitHub account.
+Before following along with this section, check to see if you already have a key pair saved in the default location:
+
+```{bash eval = FALSE}
+ls -la ~/.ssh/
+```
+
+If the output of this command includes a pair of files with the same name, one with the file extension ".pub" and the other without a file extension, you should probably skip the next section, particularly if the files have a standard name such as "id_rsa" or "id_ed25519."
+
+If you don't have a key pair, generate one by running the following line of code in Git Bash/Terminal. Use the same email address as your GitHub account.
 
 ```{bash, eval = F}
 ssh-keygen -t ed25519 -C "<your_email_here@host.com>"
