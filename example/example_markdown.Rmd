@@ -69,6 +69,7 @@ SEIR_Population
 SEIR_Population %>%
   ggplot(aes(x = time, y = Population, color = fct_relevel(Bin, "S", "E", "I", "R"))) +
   geom_line() +
-  labs(x= "Time", y = "Population", color = "Bin", title = "Differential Equations with SEIR")
+  labs(x= "Time", y = "Population", color = "Bin", title = "Differential Equations with SEIR",
+       subtitle = "System reaches equilibrium around day 200")
 ```
 
