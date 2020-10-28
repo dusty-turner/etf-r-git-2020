@@ -1,5 +1,15 @@
 # Differential Equations in R
 
+<center>
+![](img/caa_seal.png){ width=25% }
+</center>
+
+**Disclaimer:**  The appearance of U.S. Department of Defense (DoD) visual information does not imply or constitute DoD endorsement.  The views expressed in this presentation are those only of the author and do not represent the official position of the U.S. Army, DoD, or the federal government.
+
+**Disclaimer:** All data shown in this example is notional, does not reflect any real world situations, and is used strictly for instructional purposes. 
+
+## Introduction
+
 We take a quick pause from our git introduction to talk about differential equations in R.
 
 R is best known as a statistical coding language. However, it is often important to incorporate other tools into your workflow to support statistical modeling.
@@ -8,13 +18,25 @@ R is best known as a statistical coding language. However, it is often important
 
 We will rely on the r package `deSolve`, an R wrapper to the [FORTRAN ODE solver](https://rdrr.io/cran/deSolve/man/lsoda.html).
 
-```{r, warning = F, message = F}
+```{r eval=FALSE, include=TRUE}
+install.packages("deSolve")
+library(deSolve)
+```
+
+
+```{r, warning = F, message = F, include=F}
 library(deSolve)
 ```
 
 As always, we'll also use tools from the `tidyverse`.
 
-```{r, warning = F, message = F}
+```{r eval=FALSE, include=TRUE}
+install.packages("tidyverse")
+library(tidyverse)
+```
+
+
+```{r, warning = F, message = F, include=F}
 library(tidyverse)
 ```
 

@@ -9,6 +9,8 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE, warning = F, message = F)
 ```
 
+*Disclaimer:*  The appearance of U.S. Department of Defense (DoD) visual information does not imply or constitute DoD endorsement.  The views expressed in this presentation are those only of the author and do not represent the official position of the U.S. Army, DoD, or the federal government.
+
 ## Set Up Code
 
 ```{r}

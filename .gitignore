@@ -39,3 +39,9 @@ vignettes/*.pdf
 .Renviron
 
 pres_outline.docx
+
+# pdf files
+*.pdf
+
+# zip files
+*.zip

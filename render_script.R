@@ -6,3 +6,6 @@ bookdown::render_book("ETF-R-Git.Rmd", "bookdown::gitbook",output_dir = "MORS_ET
 
 
 # bookdown::preview_chapter(input = "4-Text-Analysis.Rmd")
+
+zip::zipr(zipfile = "MORS_ETF_2020.zip",files =  "MORS_ETF_2020", recurse = TRUE)
+

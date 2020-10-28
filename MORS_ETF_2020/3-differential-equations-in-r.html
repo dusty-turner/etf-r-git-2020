@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3 Differential Equations in R | Intermediate R</title>
-  <meta name="description" content="3 Differential Equations in R | Intermediate R" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <title>3 Differential Equations in R | git and Differential Equations in R</title>
+  <meta name="description" content="3 Differential Equations in R | git and Differential Equations in R" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3 Differential Equations in R | Intermediate R" />
+  <meta property="og:title" content="3 Differential Equations in R | git and Differential Equations in R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 Differential Equations in R | Intermediate R" />
+  <meta name="twitter:title" content="3 Differential Equations in R | git and Differential Equations in R" />
   
   
   
@@ -32,7 +32,6 @@
   
 <link rel="prev" href="2-introduction-to-git.html"/>
 <link rel="next" href="4-collaboration-using-git.html"/>
-<script src="libs/header-attrs-2.4/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -53,26 +52,25 @@
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -81,9 +79,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -128,7 +126,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href = "/">Tutorial Home</a></li>
+<li><a href = "https://cprobe.army.mil/shinyapps/CAA/MORS_ETF_2020/">Tutorial Home</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Class Introduction</a></li>
@@ -144,7 +142,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Intermediate R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">git and Differential Equations in R</a>
           </h1>
         </div>
 
@@ -152,18 +150,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="differential-equations-in-r" class="section level1" number="3">
+<div id="differential-equations-in-r" class="section level1">
 <h1><span class="header-section-number">3</span> Differential Equations in R</h1>
+<center>
+<img src="img/caa_seal.png" style="width:25.0%" />
+</center>
+<p><strong>Disclaimer:</strong> The appearance of U.S. Department of Defense (DoD) visual information does not imply or constitute DoD endorsement. The views expressed in this presentation are those only of the author and do not represent the official position of the U.S. Army, DoD, or the federal government.</p>
+<p><strong>Disclaimer:</strong> All data shown in this example is notional, does not reflect any real world situations, and is used strictly for instructional purposes.</p>
+<div id="introduction" class="section level2">
+<h2><span class="header-section-number">3.1</span> Introduction</h2>
 <p>We take a quick pause from our git introduction to talk about differential equations in R.</p>
 <p>R is best known as a statistical coding language. However, it is often important to incorporate other tools into your workflow to support statistical modeling.</p>
-<div id="desolve" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> deSolve</h2>
+</div>
+<div id="desolve" class="section level2">
+<h2><span class="header-section-number">3.2</span> deSolve</h2>
 <p>We will rely on the r package <code>deSolve</code>, an R wrapper to the <a href="https://rdrr.io/cran/deSolve/man/lsoda.html">FORTRAN ODE solver</a>.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="3-differential-equations-in-r.html#cb11-1" aria-hidden="true"></a><span class="kw">library</span>(deSolve)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;deSolve&quot;</span>)</a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="kw">library</span>(deSolve)</a></code></pre></div>
 <p>As always, we’ll also use tools from the <code>tidyverse</code>.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="3-differential-equations-in-r.html#cb12-1" aria-hidden="true"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
-<div id="steps-to-solving-differential-equations-with-desolve" class="section level3" number="3.1.1">
-<h3><span class="header-section-number">3.1.1</span> Steps to solving differential equations with deSolve</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
+<a class="sourceLine" id="cb12-2" title="2"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<div id="steps-to-solving-differential-equations-with-desolve" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Steps to solving differential equations with deSolve</h3>
 <ol style="list-style-type: decimal">
 <li>Define your first order differential equations</li>
 <li>Define parameters governing the differential equations</li>
@@ -173,8 +181,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 </div>
 </div>
-<div id="real-world-example-seir" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Real world example: SEIR</h2>
+<div id="real-world-example-seir" class="section level2">
+<h2><span class="header-section-number">3.3</span> Real world example: SEIR</h2>
 <p>In epidemiology, the SEIR equations model the spread of a disease through a population.</p>
 <p>The S, E, I, and R represent four distinct population bins:</p>
 <ul>
@@ -189,64 +197,64 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math inline">\(\sigma\)</span>: 1 / time from exposure to infectiousness (i.e. time spent in “E” bin)</p>
 <p><span class="math inline">\(\gamma\)</span>: 1 / time from infectiousness to recovery (i.e. time spent in “I” bin)</p>
 </div>
-<div id="seir-differential-equations-using-desolve-in-r" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> SEIR Differential Equations using deSolve in R</h2>
+<div id="seir-differential-equations-using-desolve-in-r" class="section level2">
+<h2><span class="header-section-number">3.4</span> SEIR Differential Equations using deSolve in R</h2>
 <p>In order to solve a system of differential equations, we will work to provide all the elements of the <code>lsoda()</code> function from the <code>deSolve</code> library.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="3-differential-equations-in-r.html#cb13-1" aria-hidden="true"></a>sol &lt;-<span class="st"> </span><span class="kw">lsoda</span>(<span class="dt">y =</span> init, <span class="dt">times =</span>  t, <span class="dt">func =</span> seir_ode, <span class="dt">parms =</span> par)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1">sol &lt;-<span class="st"> </span><span class="kw">lsoda</span>(<span class="dt">y =</span> init, <span class="dt">times =</span>  t, <span class="dt">func =</span> seir_ode, <span class="dt">parms =</span> par)</a></code></pre></div>
 <p><code>y</code>: The initial values for the ODE syetem</p>
 <p><code>times</code>: Times at which excplicit estimates for <code>y</code> are desired.</p>
 <p><code>func</code>: R-function that computes the values of the derivatives in the ODE system (the model definition) at time t.</p>
 <p><code>parms</code>: vector or list of parameters used in <code>func</code></p>
-<div id="define-initial-conditions" class="section level3" number="3.3.1">
-<h3><span class="header-section-number">3.3.1</span> Define Initial Conditions</h3>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="3-differential-equations-in-r.html#cb14-1" aria-hidden="true"></a>iNot &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">/</span><span class="dv">1000</span> <span class="co"># proportion of population that is infected on day 1</span></span>
-<span id="cb14-2"><a href="3-differential-equations-in-r.html#cb14-2" aria-hidden="true"></a>eNot &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">/</span><span class="dv">100</span> <span class="co"># proportion of population that is exposed but not yet infected on day 1</span></span>
-<span id="cb14-3"><a href="3-differential-equations-in-r.html#cb14-3" aria-hidden="true"></a>rNot &lt;-<span class="st"> </span><span class="dv">0</span> <span class="co"># proportion of population that is removed on day 1</span></span>
-<span id="cb14-4"><a href="3-differential-equations-in-r.html#cb14-4" aria-hidden="true"></a>sNot &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">-</span><span class="st"> </span>iNot <span class="op">-</span><span class="st"> </span>eNot <span class="op">-</span><span class="st"> </span>rNot <span class="co"># proportion of population that is susceptible on day 1</span></span>
-<span id="cb14-5"><a href="3-differential-equations-in-r.html#cb14-5" aria-hidden="true"></a></span>
-<span id="cb14-6"><a href="3-differential-equations-in-r.html#cb14-6" aria-hidden="true"></a>init&lt;-<span class="kw">c</span>(sNot,eNot,iNot)</span></code></pre></div>
+<div id="define-initial-conditions" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Define Initial Conditions</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1">iNot &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">/</span><span class="dv">1000</span> <span class="co"># proportion of population that is infected on day 1</span></a>
+<a class="sourceLine" id="cb14-2" title="2">eNot &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">/</span><span class="dv">100</span> <span class="co"># proportion of population that is exposed but not yet infected on day 1</span></a>
+<a class="sourceLine" id="cb14-3" title="3">rNot &lt;-<span class="st"> </span><span class="dv">0</span> <span class="co"># proportion of population that is removed on day 1</span></a>
+<a class="sourceLine" id="cb14-4" title="4">sNot &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">-</span><span class="st"> </span>iNot <span class="op">-</span><span class="st"> </span>eNot <span class="op">-</span><span class="st"> </span>rNot <span class="co"># proportion of population that is susceptible on day 1</span></a>
+<a class="sourceLine" id="cb14-5" title="5"></a>
+<a class="sourceLine" id="cb14-6" title="6">init&lt;-<span class="kw">c</span>(sNot,eNot,iNot)</a></code></pre></div>
 </div>
-<div id="define-time-steps" class="section level3" number="3.3.2">
-<h3><span class="header-section-number">3.3.2</span> Define Time Steps</h3>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="3-differential-equations-in-r.html#cb15-1" aria-hidden="true"></a>t&lt;-<span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">365</span>)</span></code></pre></div>
+<div id="define-time-steps" class="section level3">
+<h3><span class="header-section-number">3.4.2</span> Define Time Steps</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1">t&lt;-<span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">365</span>)</a></code></pre></div>
 </div>
-<div id="define-the-ordinary-differential-equations" class="section level3" number="3.3.3">
-<h3><span class="header-section-number">3.3.3</span> Define the Ordinary Differential Equations</h3>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="3-differential-equations-in-r.html#cb16-1" aria-hidden="true"></a>seir_ode &lt;-<span class="st"> </span><span class="cf">function</span>(t,Y,par){</span>
-<span id="cb16-2"><a href="3-differential-equations-in-r.html#cb16-2" aria-hidden="true"></a></span>
-<span id="cb16-3"><a href="3-differential-equations-in-r.html#cb16-3" aria-hidden="true"></a>  S&lt;-Y[<span class="dv">1</span>] <span class="co"># Suseptible</span></span>
-<span id="cb16-4"><a href="3-differential-equations-in-r.html#cb16-4" aria-hidden="true"></a>  E&lt;-Y[<span class="dv">2</span>] <span class="co"># Exposed </span></span>
-<span id="cb16-5"><a href="3-differential-equations-in-r.html#cb16-5" aria-hidden="true"></a>  I&lt;-Y[<span class="dv">3</span>] <span class="co"># Infected</span></span>
-<span id="cb16-6"><a href="3-differential-equations-in-r.html#cb16-6" aria-hidden="true"></a>  </span>
-<span id="cb16-7"><a href="3-differential-equations-in-r.html#cb16-7" aria-hidden="true"></a>  beta&lt;-par[<span class="dv">1</span>] <span class="co"># this takes the first slot from the vector par that is passed in - it changes every time</span></span>
-<span id="cb16-8"><a href="3-differential-equations-in-r.html#cb16-8" aria-hidden="true"></a>  sigma&lt;-par[<span class="dv">2</span>] <span class="co"># this takes the second slot from the vector par that is passed in - it remains constant</span></span>
-<span id="cb16-9"><a href="3-differential-equations-in-r.html#cb16-9" aria-hidden="true"></a>  gamma&lt;-par[<span class="dv">3</span>] <span class="co"># this takes the third slot from the vector par that is passed in - it remains constant</span></span>
-<span id="cb16-10"><a href="3-differential-equations-in-r.html#cb16-10" aria-hidden="true"></a>  <span class="co"># mu&lt;-par[4] # this takes the third slot from the vector par that is passed in - it remains constant</span></span>
-<span id="cb16-11"><a href="3-differential-equations-in-r.html#cb16-11" aria-hidden="true"></a>  </span>
-<span id="cb16-12"><a href="3-differential-equations-in-r.html#cb16-12" aria-hidden="true"></a>  dYdt&lt;-<span class="kw">vector</span>(<span class="dt">length=</span><span class="dv">3</span>)  <span class="co">## this creates an empty vector of length 3</span></span>
-<span id="cb16-13"><a href="3-differential-equations-in-r.html#cb16-13" aria-hidden="true"></a>  dYdt[<span class="dv">1</span>]=<span class="op">-</span>beta<span class="op">*</span>I<span class="op">*</span>S <span class="co">## this is the formula for the suseptible population after the first step of the SEIR</span></span>
-<span id="cb16-14"><a href="3-differential-equations-in-r.html#cb16-14" aria-hidden="true"></a>  dYdt[<span class="dv">2</span>]=beta<span class="op">*</span>I<span class="op">*</span>S<span class="op">-</span>sigma<span class="op">*</span>E <span class="co">## this is the formula for the exposed population after the first step of the SEIR</span></span>
-<span id="cb16-15"><a href="3-differential-equations-in-r.html#cb16-15" aria-hidden="true"></a>  dYdt[<span class="dv">3</span>]=sigma<span class="op">*</span>E<span class="op">-</span>gamma<span class="op">*</span>I <span class="co">## this is the formula for the infected population after the first step of the SEIR</span></span>
-<span id="cb16-16"><a href="3-differential-equations-in-r.html#cb16-16" aria-hidden="true"></a>  </span>
-<span id="cb16-17"><a href="3-differential-equations-in-r.html#cb16-17" aria-hidden="true"></a>  <span class="kw">return</span>(<span class="kw">list</span>(dYdt))</span>
-<span id="cb16-18"><a href="3-differential-equations-in-r.html#cb16-18" aria-hidden="true"></a>}</span></code></pre></div>
+<div id="define-the-ordinary-differential-equations" class="section level3">
+<h3><span class="header-section-number">3.4.3</span> Define the Ordinary Differential Equations</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1">seir_ode &lt;-<span class="st"> </span><span class="cf">function</span>(t,Y,par){</a>
+<a class="sourceLine" id="cb16-2" title="2"></a>
+<a class="sourceLine" id="cb16-3" title="3">  S&lt;-Y[<span class="dv">1</span>] <span class="co"># Suseptible</span></a>
+<a class="sourceLine" id="cb16-4" title="4">  E&lt;-Y[<span class="dv">2</span>] <span class="co"># Exposed </span></a>
+<a class="sourceLine" id="cb16-5" title="5">  I&lt;-Y[<span class="dv">3</span>] <span class="co"># Infected</span></a>
+<a class="sourceLine" id="cb16-6" title="6">  </a>
+<a class="sourceLine" id="cb16-7" title="7">  beta&lt;-par[<span class="dv">1</span>] <span class="co"># this takes the first slot from the vector par that is passed in - it changes every time</span></a>
+<a class="sourceLine" id="cb16-8" title="8">  sigma&lt;-par[<span class="dv">2</span>] <span class="co"># this takes the second slot from the vector par that is passed in - it remains constant</span></a>
+<a class="sourceLine" id="cb16-9" title="9">  gamma&lt;-par[<span class="dv">3</span>] <span class="co"># this takes the third slot from the vector par that is passed in - it remains constant</span></a>
+<a class="sourceLine" id="cb16-10" title="10">  <span class="co"># mu&lt;-par[4] # this takes the third slot from the vector par that is passed in - it remains constant</span></a>
+<a class="sourceLine" id="cb16-11" title="11">  </a>
+<a class="sourceLine" id="cb16-12" title="12">  dYdt&lt;-<span class="kw">vector</span>(<span class="dt">length=</span><span class="dv">3</span>)  <span class="co">## this creates an empty vector of length 3</span></a>
+<a class="sourceLine" id="cb16-13" title="13">  dYdt[<span class="dv">1</span>]=<span class="op">-</span>beta<span class="op">*</span>I<span class="op">*</span>S <span class="co">## this is the formula for the suseptible population after the first step of the SEIR</span></a>
+<a class="sourceLine" id="cb16-14" title="14">  dYdt[<span class="dv">2</span>]=beta<span class="op">*</span>I<span class="op">*</span>S<span class="op">-</span>sigma<span class="op">*</span>E <span class="co">## this is the formula for the exposed population after the first step of the SEIR</span></a>
+<a class="sourceLine" id="cb16-15" title="15">  dYdt[<span class="dv">3</span>]=sigma<span class="op">*</span>E<span class="op">-</span>gamma<span class="op">*</span>I <span class="co">## this is the formula for the infected population after the first step of the SEIR</span></a>
+<a class="sourceLine" id="cb16-16" title="16">  </a>
+<a class="sourceLine" id="cb16-17" title="17">  <span class="kw">return</span>(<span class="kw">list</span>(dYdt))</a>
+<a class="sourceLine" id="cb16-18" title="18">}</a></code></pre></div>
 </div>
-<div id="define-parameters" class="section level3" number="3.3.4">
-<h3><span class="header-section-number">3.3.4</span> Define Parameters</h3>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="3-differential-equations-in-r.html#cb17-1" aria-hidden="true"></a>beta &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span></span>
-<span id="cb17-2"><a href="3-differential-equations-in-r.html#cb17-2" aria-hidden="true"></a>sigma &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">/</span><span class="dv">6</span></span>
-<span id="cb17-3"><a href="3-differential-equations-in-r.html#cb17-3" aria-hidden="true"></a>gamma &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">/</span><span class="dv">14</span></span>
-<span id="cb17-4"><a href="3-differential-equations-in-r.html#cb17-4" aria-hidden="true"></a></span>
-<span id="cb17-5"><a href="3-differential-equations-in-r.html#cb17-5" aria-hidden="true"></a>par&lt;-<span class="kw">c</span>(beta,sigma,gamma)</span></code></pre></div>
+<div id="define-parameters" class="section level3">
+<h3><span class="header-section-number">3.4.4</span> Define Parameters</h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1">beta &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span></a>
+<a class="sourceLine" id="cb17-2" title="2">sigma &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">/</span><span class="dv">6</span></a>
+<a class="sourceLine" id="cb17-3" title="3">gamma &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">/</span><span class="dv">14</span></a>
+<a class="sourceLine" id="cb17-4" title="4"></a>
+<a class="sourceLine" id="cb17-5" title="5">par&lt;-<span class="kw">c</span>(beta,sigma,gamma)</a></code></pre></div>
 </div>
 </div>
-<div id="solve-differential-equations" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Solve Differential Equations</h2>
-<div id="lsoda-function" class="section level3" number="3.4.1">
-<h3><span class="header-section-number">3.4.1</span> <code>lsoda</code> function</h3>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="3-differential-equations-in-r.html#cb18-1" aria-hidden="true"></a>sol &lt;-<span class="st"> </span><span class="kw">lsoda</span>(<span class="dt">y =</span> init, <span class="dt">times =</span>  t, <span class="dt">func =</span> seir_ode, <span class="dt">parms =</span> par)</span>
-<span id="cb18-2"><a href="3-differential-equations-in-r.html#cb18-2" aria-hidden="true"></a></span>
-<span id="cb18-3"><a href="3-differential-equations-in-r.html#cb18-3" aria-hidden="true"></a><span class="kw">head</span>(sol)</span></code></pre></div>
+<div id="solve-differential-equations" class="section level2">
+<h2><span class="header-section-number">3.5</span> Solve Differential Equations</h2>
+<div id="lsoda-function" class="section level3">
+<h3><span class="header-section-number">3.5.1</span> <code>lsoda</code> function</h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1">sol &lt;-<span class="st"> </span><span class="kw">lsoda</span>(<span class="dt">y =</span> init, <span class="dt">times =</span>  t, <span class="dt">func =</span> seir_ode, <span class="dt">parms =</span> par)</a>
+<a class="sourceLine" id="cb18-2" title="2"></a>
+<a class="sourceLine" id="cb18-3" title="3"><span class="kw">head</span>(sol)</a></code></pre></div>
 <pre><code>##      time         1           2           3
 ## [1,]    0 0.9890000 0.010000000 0.001000000
 ## [2,]    1 0.9886557 0.008785122 0.002434822
@@ -256,9 +264,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [6,]    5 0.9850863 0.007234498 0.006263121</code></pre>
 <p>We’ll return to this output in a second, but lets first take a deeper look at what is happening in <code>lsoda()</code>.</p>
 </div>
-<div id="what-is-going-on-under-the-hood" class="section level3" number="3.4.2">
-<h3><span class="header-section-number">3.4.2</span> What is going on under the hood?</h3>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="3-differential-equations-in-r.html#cb20-1" aria-hidden="true"></a>sol &lt;-<span class="st"> </span><span class="kw">lsoda</span>(<span class="dt">y =</span> init, <span class="dt">times =</span>  t, <span class="dt">func =</span> seir_ode, <span class="dt">parms =</span> par, <span class="dt">verbose =</span> T)</span></code></pre></div>
+<div id="what-is-going-on-under-the-hood" class="section level3">
+<h3><span class="header-section-number">3.5.2</span> What is going on under the hood?</h3>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1">sol &lt;-<span class="st"> </span><span class="kw">lsoda</span>(<span class="dt">y =</span> init, <span class="dt">times =</span>  t, <span class="dt">func =</span> seir_ode, <span class="dt">parms =</span> par, <span class="dt">verbose =</span> T)</a></code></pre></div>
 <pre><code>## 
 ## -------------------- 
 ## Time settings 
@@ -310,39 +318,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   5 The value of t at the time of the last method switch, if any: 0 
 ## </code></pre>
 </div>
-<div id="how-is-desolve-doing-the-work" class="section level3" number="3.4.3">
-<h3><span class="header-section-number">3.4.3</span> How is <code>deSolve</code> doing the work?</h3>
+<div id="how-is-desolve-doing-the-work" class="section level3">
+<h3><span class="header-section-number">3.5.3</span> How is <code>deSolve</code> doing the work?</h3>
 <p>Let’s put in a few <code>print()</code> statements to help us learn.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="3-differential-equations-in-r.html#cb22-1" aria-hidden="true"></a>seir_ode_explore &lt;-<span class="st"> </span><span class="cf">function</span>(t,Y,par){</span>
-<span id="cb22-2"><a href="3-differential-equations-in-r.html#cb22-2" aria-hidden="true"></a>  </span>
-<span id="cb22-3"><a href="3-differential-equations-in-r.html#cb22-3" aria-hidden="true"></a>  <span class="kw">print</span>(<span class="kw">str_c</span>(<span class="st">&quot;S at time t = &quot;</span>, t,<span class="st">&quot; is: &quot;</span>, Y[<span class="dv">1</span>]))</span>
-<span id="cb22-4"><a href="3-differential-equations-in-r.html#cb22-4" aria-hidden="true"></a>  <span class="kw">print</span>(<span class="kw">str_c</span>(<span class="st">&quot;E at time t = &quot;</span>, t,<span class="st">&quot; is: &quot;</span>, Y[<span class="dv">2</span>]))</span>
-<span id="cb22-5"><a href="3-differential-equations-in-r.html#cb22-5" aria-hidden="true"></a>  <span class="kw">print</span>(<span class="kw">str_c</span>(<span class="st">&quot;I at time t = &quot;</span>, t,<span class="st">&quot; is: &quot;</span>, Y[<span class="dv">3</span>]))</span>
-<span id="cb22-6"><a href="3-differential-equations-in-r.html#cb22-6" aria-hidden="true"></a>  <span class="kw">print</span>(<span class="kw">str_c</span>(<span class="st">&quot;R at time t = &quot;</span>, t,<span class="st">&quot; is: &quot;</span>, Y[<span class="dv">1</span>]<span class="op">-</span>Y[<span class="dv">2</span>]<span class="op">-</span>Y[<span class="dv">3</span>]))</span>
-<span id="cb22-7"><a href="3-differential-equations-in-r.html#cb22-7" aria-hidden="true"></a></span>
-<span id="cb22-8"><a href="3-differential-equations-in-r.html#cb22-8" aria-hidden="true"></a>  S&lt;-Y[<span class="dv">1</span>] <span class="co"># Suseptible</span></span>
-<span id="cb22-9"><a href="3-differential-equations-in-r.html#cb22-9" aria-hidden="true"></a>  E&lt;-Y[<span class="dv">2</span>] <span class="co"># Exposed </span></span>
-<span id="cb22-10"><a href="3-differential-equations-in-r.html#cb22-10" aria-hidden="true"></a>  I&lt;-Y[<span class="dv">3</span>] <span class="co"># Infected</span></span>
-<span id="cb22-11"><a href="3-differential-equations-in-r.html#cb22-11" aria-hidden="true"></a>  </span>
-<span id="cb22-12"><a href="3-differential-equations-in-r.html#cb22-12" aria-hidden="true"></a>  beta&lt;-par[<span class="dv">1</span>] <span class="co"># this takes the first slot from the vector par that is passed in - it changes every time</span></span>
-<span id="cb22-13"><a href="3-differential-equations-in-r.html#cb22-13" aria-hidden="true"></a>  sigma&lt;-par[<span class="dv">2</span>] <span class="co"># this takes the second slot from the vector par that is passed in - it remains constant</span></span>
-<span id="cb22-14"><a href="3-differential-equations-in-r.html#cb22-14" aria-hidden="true"></a>  gamma&lt;-par[<span class="dv">3</span>] <span class="co"># this takes the third slot from the vector par that is passed in - it remains constant</span></span>
-<span id="cb22-15"><a href="3-differential-equations-in-r.html#cb22-15" aria-hidden="true"></a>  </span>
-<span id="cb22-16"><a href="3-differential-equations-in-r.html#cb22-16" aria-hidden="true"></a>  dYdt&lt;-<span class="kw">vector</span>(<span class="dt">length=</span><span class="dv">3</span>)  <span class="co">## this creates an empty vector of length 3</span></span>
-<span id="cb22-17"><a href="3-differential-equations-in-r.html#cb22-17" aria-hidden="true"></a>  dYdt[<span class="dv">1</span>]=<span class="op">-</span>beta<span class="op">*</span>I<span class="op">*</span>S <span class="co">## this is the formula for the suseptible population after the first step of the SEIR</span></span>
-<span id="cb22-18"><a href="3-differential-equations-in-r.html#cb22-18" aria-hidden="true"></a>  dYdt[<span class="dv">2</span>]=beta<span class="op">*</span>I<span class="op">*</span>S<span class="op">-</span>sigma<span class="op">*</span>E <span class="co">## this is the formula for the exposed population after the first step of the SEIR</span></span>
-<span id="cb22-19"><a href="3-differential-equations-in-r.html#cb22-19" aria-hidden="true"></a>  dYdt[<span class="dv">3</span>]=sigma<span class="op">*</span>E<span class="op">-</span>gamma<span class="op">*</span>I <span class="co">## this is the formula for the infected population after the first step of the SEIR</span></span>
-<span id="cb22-20"><a href="3-differential-equations-in-r.html#cb22-20" aria-hidden="true"></a>  </span>
-<span id="cb22-21"><a href="3-differential-equations-in-r.html#cb22-21" aria-hidden="true"></a>  <span class="kw">print</span>(<span class="kw">str_c</span>(<span class="st">&quot;dSdt at time t = &quot;</span>, t,<span class="st">&quot; is: &quot;</span>, dYdt[<span class="dv">1</span>]))</span>
-<span id="cb22-22"><a href="3-differential-equations-in-r.html#cb22-22" aria-hidden="true"></a>  <span class="kw">print</span>(<span class="kw">str_c</span>(<span class="st">&quot;dEdt at time t = &quot;</span>, t,<span class="st">&quot; is: &quot;</span>, dYdt[<span class="dv">2</span>]))</span>
-<span id="cb22-23"><a href="3-differential-equations-in-r.html#cb22-23" aria-hidden="true"></a>  <span class="kw">print</span>(<span class="kw">str_c</span>(<span class="st">&quot;dIdt at time t = &quot;</span>, t,<span class="st">&quot; is: &quot;</span>, dYdt[<span class="dv">3</span>]))</span>
-<span id="cb22-24"><a href="3-differential-equations-in-r.html#cb22-24" aria-hidden="true"></a>  </span>
-<span id="cb22-25"><a href="3-differential-equations-in-r.html#cb22-25" aria-hidden="true"></a>  <span class="kw">return</span>(<span class="kw">list</span>(dYdt))</span>
-<span id="cb22-26"><a href="3-differential-equations-in-r.html#cb22-26" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1">seir_ode_explore &lt;-<span class="st"> </span><span class="cf">function</span>(t,Y,par){</a>
+<a class="sourceLine" id="cb22-2" title="2">  </a>
+<a class="sourceLine" id="cb22-3" title="3">  <span class="kw">print</span>(<span class="kw">str_c</span>(<span class="st">&quot;S at time t = &quot;</span>, t,<span class="st">&quot; is: &quot;</span>, Y[<span class="dv">1</span>]))</a>
+<a class="sourceLine" id="cb22-4" title="4">  <span class="kw">print</span>(<span class="kw">str_c</span>(<span class="st">&quot;E at time t = &quot;</span>, t,<span class="st">&quot; is: &quot;</span>, Y[<span class="dv">2</span>]))</a>
+<a class="sourceLine" id="cb22-5" title="5">  <span class="kw">print</span>(<span class="kw">str_c</span>(<span class="st">&quot;I at time t = &quot;</span>, t,<span class="st">&quot; is: &quot;</span>, Y[<span class="dv">3</span>]))</a>
+<a class="sourceLine" id="cb22-6" title="6">  <span class="kw">print</span>(<span class="kw">str_c</span>(<span class="st">&quot;R at time t = &quot;</span>, t,<span class="st">&quot; is: &quot;</span>, Y[<span class="dv">1</span>]<span class="op">-</span>Y[<span class="dv">2</span>]<span class="op">-</span>Y[<span class="dv">3</span>]))</a>
+<a class="sourceLine" id="cb22-7" title="7"></a>
+<a class="sourceLine" id="cb22-8" title="8">  S&lt;-Y[<span class="dv">1</span>] <span class="co"># Suseptible</span></a>
+<a class="sourceLine" id="cb22-9" title="9">  E&lt;-Y[<span class="dv">2</span>] <span class="co"># Exposed </span></a>
+<a class="sourceLine" id="cb22-10" title="10">  I&lt;-Y[<span class="dv">3</span>] <span class="co"># Infected</span></a>
+<a class="sourceLine" id="cb22-11" title="11">  </a>
+<a class="sourceLine" id="cb22-12" title="12">  beta&lt;-par[<span class="dv">1</span>] <span class="co"># this takes the first slot from the vector par that is passed in - it changes every time</span></a>
+<a class="sourceLine" id="cb22-13" title="13">  sigma&lt;-par[<span class="dv">2</span>] <span class="co"># this takes the second slot from the vector par that is passed in - it remains constant</span></a>
+<a class="sourceLine" id="cb22-14" title="14">  gamma&lt;-par[<span class="dv">3</span>] <span class="co"># this takes the third slot from the vector par that is passed in - it remains constant</span></a>
+<a class="sourceLine" id="cb22-15" title="15">  </a>
+<a class="sourceLine" id="cb22-16" title="16">  dYdt&lt;-<span class="kw">vector</span>(<span class="dt">length=</span><span class="dv">3</span>)  <span class="co">## this creates an empty vector of length 3</span></a>
+<a class="sourceLine" id="cb22-17" title="17">  dYdt[<span class="dv">1</span>]=<span class="op">-</span>beta<span class="op">*</span>I<span class="op">*</span>S <span class="co">## this is the formula for the suseptible population after the first step of the SEIR</span></a>
+<a class="sourceLine" id="cb22-18" title="18">  dYdt[<span class="dv">2</span>]=beta<span class="op">*</span>I<span class="op">*</span>S<span class="op">-</span>sigma<span class="op">*</span>E <span class="co">## this is the formula for the exposed population after the first step of the SEIR</span></a>
+<a class="sourceLine" id="cb22-19" title="19">  dYdt[<span class="dv">3</span>]=sigma<span class="op">*</span>E<span class="op">-</span>gamma<span class="op">*</span>I <span class="co">## this is the formula for the infected population after the first step of the SEIR</span></a>
+<a class="sourceLine" id="cb22-20" title="20">  </a>
+<a class="sourceLine" id="cb22-21" title="21">  <span class="kw">print</span>(<span class="kw">str_c</span>(<span class="st">&quot;dSdt at time t = &quot;</span>, t,<span class="st">&quot; is: &quot;</span>, dYdt[<span class="dv">1</span>]))</a>
+<a class="sourceLine" id="cb22-22" title="22">  <span class="kw">print</span>(<span class="kw">str_c</span>(<span class="st">&quot;dEdt at time t = &quot;</span>, t,<span class="st">&quot; is: &quot;</span>, dYdt[<span class="dv">2</span>]))</a>
+<a class="sourceLine" id="cb22-23" title="23">  <span class="kw">print</span>(<span class="kw">str_c</span>(<span class="st">&quot;dIdt at time t = &quot;</span>, t,<span class="st">&quot; is: &quot;</span>, dYdt[<span class="dv">3</span>]))</a>
+<a class="sourceLine" id="cb22-24" title="24">  </a>
+<a class="sourceLine" id="cb22-25" title="25">  <span class="kw">return</span>(<span class="kw">list</span>(dYdt))</a>
+<a class="sourceLine" id="cb22-26" title="26">}</a></code></pre></div>
 <p>Lets see what this teaches us.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="3-differential-equations-in-r.html#cb23-1" aria-hidden="true"></a>t&lt;-<span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>)</span>
-<span id="cb23-2"><a href="3-differential-equations-in-r.html#cb23-2" aria-hidden="true"></a></span>
-<span id="cb23-3"><a href="3-differential-equations-in-r.html#cb23-3" aria-hidden="true"></a>sol_explore&lt;-<span class="kw">lsoda</span>(<span class="dt">y =</span> init, <span class="dt">times =</span>  t, <span class="dt">func =</span> seir_ode_explore, <span class="dt">parms =</span> par, <span class="dt">verbose =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1">t&lt;-<span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb23-2" title="2"></a>
+<a class="sourceLine" id="cb23-3" title="3">sol_explore&lt;-<span class="kw">lsoda</span>(<span class="dt">y =</span> init, <span class="dt">times =</span>  t, <span class="dt">func =</span> seir_ode_explore, <span class="dt">parms =</span> par, <span class="dt">verbose =</span> F)</a></code></pre></div>
 <pre><code>## [1] &quot;S at time t = 0 is: 0.989&quot;
 ## [1] &quot;E at time t = 0 is: 0.01&quot;
 ## [1] &quot;I at time t = 0 is: 0.001&quot;
@@ -444,10 +452,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We can see from this output how <code>lsoda</code> is stepping through to numerically solve the differential equations.</p>
 </div>
 </div>
-<div id="explore-results" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> Explore Results</h2>
+<div id="explore-results" class="section level2">
+<h2><span class="header-section-number">3.6</span> Explore Results</h2>
 <p>Results from <code>sol &lt;- lsoda()</code>.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="3-differential-equations-in-r.html#cb25-1" aria-hidden="true"></a><span class="kw">head</span>(sol)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1"><span class="kw">head</span>(sol)</a></code></pre></div>
 <pre><code>##      time         1           2           3
 ## [1,]    0 0.9890000 0.010000000 0.001000000
 ## [2,]    1 0.9886557 0.008785122 0.002434822
@@ -455,19 +463,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [4,]    3 0.9872404 0.007518909 0.004604707
 ## [5,]    4 0.9862442 0.007284371 0.005474887
 ## [6,]    5 0.9850863 0.007234498 0.006263121</code></pre>
-<div id="tidy-the-output" class="section level3" number="3.5.1">
-<h3><span class="header-section-number">3.5.1</span> “Tidy” the output</h3>
+<div id="tidy-the-output" class="section level3">
+<h3><span class="header-section-number">3.6.1</span> “Tidy” the output</h3>
 <p>This is confusing. Let’s clean it up.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="3-differential-equations-in-r.html#cb27-1" aria-hidden="true"></a>SEIR_Population &lt;-</span>
-<span id="cb27-2"><a href="3-differential-equations-in-r.html#cb27-2" aria-hidden="true"></a><span class="st">  </span>sol <span class="op">%&gt;%</span></span>
-<span id="cb27-3"><a href="3-differential-equations-in-r.html#cb27-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span></span>
-<span id="cb27-4"><a href="3-differential-equations-in-r.html#cb27-4" aria-hidden="true"></a><span class="st">  </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span></span>
-<span id="cb27-5"><a href="3-differential-equations-in-r.html#cb27-5" aria-hidden="true"></a><span class="st">  </span>janitor<span class="op">::</span><span class="kw">clean_names</span>() <span class="op">%&gt;%</span></span>
-<span id="cb27-6"><a href="3-differential-equations-in-r.html#cb27-6" aria-hidden="true"></a><span class="st">  </span><span class="kw">rename</span>(<span class="dt">S =</span> x1, <span class="dt">E =</span> x2, <span class="dt">I =</span> x3) <span class="op">%&gt;%</span></span>
-<span id="cb27-7"><a href="3-differential-equations-in-r.html#cb27-7" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">R =</span> <span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">rowSums</span>(.[<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>])) <span class="op">%&gt;%</span></span>
-<span id="cb27-8"><a href="3-differential-equations-in-r.html#cb27-8" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="kw">across</span>(<span class="dt">.cols =</span> S<span class="op">:</span>R, <span class="dt">.fns =</span> <span class="op">~</span><span class="st"> </span>. <span class="op">*</span><span class="st"> </span><span class="dv">10000</span>))</span>
-<span id="cb27-9"><a href="3-differential-equations-in-r.html#cb27-9" aria-hidden="true"></a>  </span>
-<span id="cb27-10"><a href="3-differential-equations-in-r.html#cb27-10" aria-hidden="true"></a><span class="kw">head</span>(SEIR_Population)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1">SEIR_Population &lt;-</a>
+<a class="sourceLine" id="cb27-2" title="2"><span class="st">  </span>sol <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb27-3" title="3"><span class="st">  </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb27-4" title="4"><span class="st">  </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb27-5" title="5"><span class="st">  </span>janitor<span class="op">::</span><span class="kw">clean_names</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb27-6" title="6"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">S =</span> x1, <span class="dt">E =</span> x2, <span class="dt">I =</span> x3) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb27-7" title="7"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">R =</span> <span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">rowSums</span>(.[<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>])) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb27-8" title="8"><span class="st">  </span><span class="kw">mutate</span>(<span class="kw">across</span>(<span class="dt">.cols =</span> S<span class="op">:</span>R, <span class="dt">.fns =</span> <span class="op">~</span><span class="st"> </span>. <span class="op">*</span><span class="st"> </span><span class="dv">10000</span>))</a>
+<a class="sourceLine" id="cb27-9" title="9">  </a>
+<a class="sourceLine" id="cb27-10" title="10"><span class="kw">head</span>(SEIR_Population)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 5
 ##    time     S     E     I     R
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -478,13 +486,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5     4 9862.  72.8  54.7  9.97
 ## 6     5 9851.  72.3  62.6 14.2</code></pre>
 </div>
-<div id="visualize-output" class="section level3" number="3.5.2">
-<h3><span class="header-section-number">3.5.2</span> Visualize Output</h3>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="3-differential-equations-in-r.html#cb29-1" aria-hidden="true"></a>SEIR_Population <span class="op">%&gt;%</span></span>
-<span id="cb29-2"><a href="3-differential-equations-in-r.html#cb29-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> S<span class="op">:</span>R, <span class="dt">names_to =</span> <span class="st">&quot;Bin&quot;</span>, <span class="dt">values_to =</span> <span class="st">&quot;Population&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb29-3"><a href="3-differential-equations-in-r.html#cb29-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> time, <span class="dt">y =</span> Population, <span class="dt">color =</span> <span class="kw">fct_relevel</span>(Bin, <span class="st">&quot;S&quot;</span>, <span class="st">&quot;E&quot;</span>, <span class="st">&quot;I&quot;</span>, <span class="st">&quot;R&quot;</span>))) <span class="op">+</span></span>
-<span id="cb29-4"><a href="3-differential-equations-in-r.html#cb29-4" aria-hidden="true"></a><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></span>
-<span id="cb29-5"><a href="3-differential-equations-in-r.html#cb29-5" aria-hidden="true"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span> <span class="st">&quot;Time&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Population&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;Bin&quot;</span>)</span></code></pre></div>
+<div id="visualize-output" class="section level3">
+<h3><span class="header-section-number">3.6.2</span> Visualize Output</h3>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1">SEIR_Population <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb29-2" title="2"><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> S<span class="op">:</span>R, <span class="dt">names_to =</span> <span class="st">&quot;Bin&quot;</span>, <span class="dt">values_to =</span> <span class="st">&quot;Population&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb29-3" title="3"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> time, <span class="dt">y =</span> Population, <span class="dt">color =</span> <span class="kw">fct_relevel</span>(Bin, <span class="st">&quot;S&quot;</span>, <span class="st">&quot;E&quot;</span>, <span class="st">&quot;I&quot;</span>, <span class="st">&quot;R&quot;</span>))) <span class="op">+</span></a>
+<a class="sourceLine" id="cb29-4" title="4"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb29-5" title="5"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span> <span class="st">&quot;Time&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Population&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;Bin&quot;</span>)</a></code></pre></div>
 <p><img src="ETF-R-Git_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
 
 </div>
