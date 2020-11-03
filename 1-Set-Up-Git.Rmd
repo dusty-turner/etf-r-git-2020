@@ -1,10 +1,12 @@
 # Introduction to git
 
-<center>
-![](img/caa_seal.png){ width=25% }
-</center>
+```{r, echo=FALSE}
+htmltools::img(src = knitr::image_uri("img/caa_seal_smaller.png"), 
+               alt = 'logo', 
+               style = 'position:absolute; top:0; right:0; padding:10px;')
+```
 
-**Disclaimer:**  The appearance of U.S. Department of Defense (DoD) visual information does not imply or constitute DoD endorsement.  The views expressed in this presentation are those only of the author and do not represent the official position of the U.S. Army, DoD, or the federal government.
+
 
 ## Introduction
 
