@@ -71,6 +71,7 @@ SEIR_Population
 SEIR_Population %>%
   ggplot(aes(x = time, y = Population, color = fct_relevel(Bin, "S", "E", "I", "R"))) +
   geom_line() +
-  labs(x= "Time", y = "Population", color = "Bin", title = "How a virus spreads across a sample population")
+  labs(x= "Time", y = "Population", color = "Bin", title = "How a virus spreads across a sample population", 
+       subtitle = "Population size of 10,000 people")
 ```
 
