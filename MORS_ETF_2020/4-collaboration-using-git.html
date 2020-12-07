@@ -157,11 +157,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">4.1</span> Collaboration</h2>
 <p>As much as time allows, we will demonstrate the following:</p>
 <ol style="list-style-type: decimal">
-<li>Pushing file changes to the remote repository<br />
+<li>Pushing file changes to the remote repository;<br />
 </li>
-<li>Pulling file changes from the remote repository</li>
-<li>Managing and merging conflicts</li>
-<li>Branching</li>
+<li>Pulling file changes from the remote repository;</li>
+<li>Managing and merging conflicts;</li>
+<li>Branching.</li>
 </ol>
 <p>This chapter offers a brief description of this basic Git workflow. For more details, check out these sites:</p>
 <ul>
@@ -185,9 +185,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb30-2" title="2"><span class="fu">git</span> commit -m <span class="st">&quot;commit message here&quot;</span></a></code></pre></div>
 <p>Before committing, it’s often very useful use <code>git status</code>, which will tell you:</p>
 <ul>
-<li><p>Which files have been changed;</p></li>
-<li><p>Which of these files have been “added” to the staging area, and which have not;</p></li>
-<li><p>Which files in your repository folder are not currently being tracked by git (because they have never been added and committed.)</p></li>
+<li>Which files have been changed;<br />
+</li>
+<li>Which of these files have been “added” to the staging area, and which have not;<br />
+</li>
+<li>Which files in your repository folder are not currently being tracked by git (because they have never been added and committed).</li>
 </ul>
 <div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb31-1" title="1"><span class="fu">git</span> status</a></code></pre></div>
 <p>Your output might look something like this, with added files at the top, then non-added changed files, then untracked files.</p>

@@ -12,7 +12,7 @@ htmltools::img(src = knitr::image_uri("img/caa_seal_smaller.png"),
 
 Our first step today will be to use Git to download the files for the tutorial from GitHub.
 
-Git is the world's most widely used version control system. It is fast, flexible, and relatively easy to learn given its sophistication under the hood, making it an invaluable tool for collaborative software development. Moreover, access to Git and to services for using it collaboratively, such as GitLab, has grown substantially in the Department of Defense in recent years, including on classified networks. Learning to use Git and related services will make you a more capable programmer, even if you primarily work alone or don't think of yourself as doing "software development."
+Git is the world's most widely used version control system. It is fast, flexible, and relatively easy to learn given its sophistication under the hood, making it an invaluable tool for collaborative software development. Moreover, access to Git and to services for using it collaboratively, such as GitLab, has grown substantially in the DoD in recent years, including on classified networks. Learning to use Git and related services will make you a more capable programmer, even if you primarily work alone or don't think of yourself as doing "software development."
 
 ## Prerequisites
 
@@ -48,9 +48,9 @@ cd sample_repo
 git init
 ```
 
-## Generate an SSH Key
+## Generate an SSH (Secure SHell) Key
 
-However, Git is at its most powerful when used collaboratively through a platform like GitHub, so, next, we'll set up GitHub to communicate securely with your local machine using the SSH protocol. Instead of the username/password or smart card authentication you may be used to, SSH typically involves public key authentication. In this setup, you generate a pair of keys, provide your public key to sites that you'd like to securely communicate with, and then let ssh do some cryptographic magic to use your private key to prove your identity without ever exposing it to anyone else.
+However, Git is at its most powerful when used collaboratively through a platform like GitHub, so, next, we'll set up GitHub to communicate securely with your local machine using the SSH protocol. Instead of the username/password or smart card authentication you may be used to, SSH typically involves public key authentication. In this setup, you generate a pair of keys, provide your public key to sites that you'd like to securely communicate with, and then let SSH do some cryptographic magic to use your private key to prove your identity without ever exposing it to anyone else.
 
 Before following along with this section, check to see if you already have a key pair saved in the default location:
 
@@ -73,7 +73,7 @@ Generating public/private ed25519 key pair.
 Enter file in which to save the key (/c/Users/robert.w.ward/.ssh/id_ed25519):
 ```
 
-You can then set a passphrase for your ssh key. This has no connection to your GitHub password or anything else - it's an additional layer of security on the keypair itself, meant to ensure that nobody could impersonate you to GitHub even if they had your private key. You won't see letters appear as you type, but you will have to type the same password twice. Good luck!
+You can then set a passphrase for your SSH key. This has no connection to your GitHub password or anything else - it's an additional layer of security on the keypair itself, meant to ensure that nobody could impersonate you to GitHub even if they had your private key. You won't see letters appear as you type, but you will have to type the same password twice. Good luck!
 
 ```
 Enter passphrase (empty for no passphrase):

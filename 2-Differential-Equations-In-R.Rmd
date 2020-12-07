@@ -8,7 +8,7 @@ htmltools::img(src = knitr::image_uri("img/caa_seal_smaller.png"),
 
 
 
-**Disclaimer:** All data shown in this example is notional, does not reflect any real world situations, and is used strictly for instructional purposes. 
+**Disclaimer:** All data shown in this example are notional, does not reflect any real world situations, and is used strictly for instructional purposes. 
 
 ## Introduction
 
@@ -67,9 +67,9 @@ A set of four differential equations govern a population's movement through thes
 
 $\beta$: Infectiousness rate - probability of transmitting disease from an infectious individual to a susceptible individual  
 
-$\sigma$: 1 / time from exposure to infectiousness (i.e. time spent in "E" bin)  
+$\sigma$: 1 / time from exposure to infectiousness (i.e., time spent in "E" bin)  
 
-$\gamma$: 1 / time from infectiousness to recovery (i.e. time spent in "I" bin)  
+$\gamma$: 1 / time from infectiousness to recovery (i.e., time spent in "I" bin)  
 
 ## SEIR Differential Equations using deSolve in R
 

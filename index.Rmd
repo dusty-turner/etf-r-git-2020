@@ -107,8 +107,8 @@ Education
 Data Science
 
 - R user since 2011; also know some python and forgot some Stata
-- Worked for GAO Applied Research & Methods
-- ORSA at CAA and Army Leader Dashboard/Vantage PM team
+- Worked for Government Accountability Office Applied Research & Methods
+- Operations Research Systems Analyst at CAA and Army Leader Dashboard/Vantage PM team
 
 
 ## Lets Get Started...

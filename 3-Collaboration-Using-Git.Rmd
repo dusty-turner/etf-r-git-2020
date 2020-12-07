@@ -11,10 +11,10 @@ htmltools::img(src = knitr::image_uri("img/caa_seal_smaller.png"),
 
 As much as time allows, we will demonstrate the following:
 
-1. Pushing file changes to the remote repository  
-2. Pulling file changes from the remote repository
-3. Managing and merging conflicts
-4. Branching
+1. Pushing file changes to the remote repository;  
+2. Pulling file changes from the remote repository;
+3. Managing and merging conflicts;
+4. Branching.
 
 This chapter offers a brief description of this basic Git workflow. For more details, check out these sites:
 
@@ -44,10 +44,8 @@ git commit -m "commit message here"
 Before committing, it's often very useful use `git status`, which will tell you:
 
 * Which files have been changed;  
-
 * Which of these files have been "added" to the staging area, and which have not;  
-
-* Which files in your repository folder are not currently being tracked by git (because they have never been added and committed.)
+* Which files in your repository folder are not currently being tracked by git (because they have never been added and committed).
 
 ```{bash eval = FALSE}
 git status

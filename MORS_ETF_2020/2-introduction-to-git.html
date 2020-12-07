@@ -156,7 +156,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="introduction" class="section level2">
 <h2><span class="header-section-number">2.1</span> Introduction</h2>
 <p>Our first step today will be to use Git to download the files for the tutorial from GitHub.</p>
-<p>Git is the world’s most widely used version control system. It is fast, flexible, and relatively easy to learn given its sophistication under the hood, making it an invaluable tool for collaborative software development. Moreover, access to Git and to services for using it collaboratively, such as GitLab, has grown substantially in the Department of Defense in recent years, including on classified networks. Learning to use Git and related services will make you a more capable programmer, even if you primarily work alone or don’t think of yourself as doing “software development.”</p>
+<p>Git is the world’s most widely used version control system. It is fast, flexible, and relatively easy to learn given its sophistication under the hood, making it an invaluable tool for collaborative software development. Moreover, access to Git and to services for using it collaboratively, such as GitLab, has grown substantially in the DoD in recent years, including on classified networks. Learning to use Git and related services will make you a more capable programmer, even if you primarily work alone or don’t think of yourself as doing “software development.”</p>
 </div>
 <div id="prerequisites" class="section level2">
 <h2><span class="header-section-number">2.2</span> Prerequisites</h2>
@@ -183,9 +183,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb3-2" title="2"><span class="bu">cd</span> sample_repo</a>
 <a class="sourceLine" id="cb3-3" title="3"><span class="fu">git</span> init</a></code></pre></div>
 </div>
-<div id="generate-an-ssh-key" class="section level2">
-<h2><span class="header-section-number">2.5</span> Generate an SSH Key</h2>
-<p>However, Git is at its most powerful when used collaboratively through a platform like GitHub, so, next, we’ll set up GitHub to communicate securely with your local machine using the SSH protocol. Instead of the username/password or smart card authentication you may be used to, SSH typically involves public key authentication. In this setup, you generate a pair of keys, provide your public key to sites that you’d like to securely communicate with, and then let ssh do some cryptographic magic to use your private key to prove your identity without ever exposing it to anyone else.</p>
+<div id="generate-an-ssh-secure-shell-key" class="section level2">
+<h2><span class="header-section-number">2.5</span> Generate an SSH (Secure SHell) Key</h2>
+<p>However, Git is at its most powerful when used collaboratively through a platform like GitHub, so, next, we’ll set up GitHub to communicate securely with your local machine using the SSH protocol. Instead of the username/password or smart card authentication you may be used to, SSH typically involves public key authentication. In this setup, you generate a pair of keys, provide your public key to sites that you’d like to securely communicate with, and then let SSH do some cryptographic magic to use your private key to prove your identity without ever exposing it to anyone else.</p>
 <p>Before following along with this section, check to see if you already have a key pair saved in the default location:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="fu">ls</span> -la ~/.ssh/</a></code></pre></div>
 <p>If the output of this command includes a pair of files with the same name, one with the file extension “.pub” and the other without a file extension, you should probably skip the next section, particularly if the files have a standard name such as “id_rsa” or “id_ed25519.”</p>
@@ -194,7 +194,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>You should see a response like the one below. If you don’t already have a key, just hit enter to use the suggested file path.</p>
 <pre><code>Generating public/private ed25519 key pair.
 Enter file in which to save the key (/c/Users/robert.w.ward/.ssh/id_ed25519):</code></pre>
-<p>You can then set a passphrase for your ssh key. This has no connection to your GitHub password or anything else - it’s an additional layer of security on the keypair itself, meant to ensure that nobody could impersonate you to GitHub even if they had your private key. You won’t see letters appear as you type, but you will have to type the same password twice. Good luck!</p>
+<p>You can then set a passphrase for your SSH key. This has no connection to your GitHub password or anything else - it’s an additional layer of security on the keypair itself, meant to ensure that nobody could impersonate you to GitHub even if they had your private key. You won’t see letters appear as you type, but you will have to type the same password twice. Good luck!</p>
 <pre><code>Enter passphrase (empty for no passphrase):
 Enter same passphrase again:</code></pre>
 </div>
